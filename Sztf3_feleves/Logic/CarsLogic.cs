@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Logic
 {
-    class CarsLogic
+    public class CarsLogic
     {
         IRepository<Cars> carrepo;
 

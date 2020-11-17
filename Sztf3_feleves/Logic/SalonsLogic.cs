@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Logic
 {
-    class SalonsLogic
+    public class SalonsLogic
     {
         IRepository<Salons> salonrepo;
 
