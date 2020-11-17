@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Repository
 {
-    interface IRepository<T> where T: new() 
+    public interface IRepository<T> where T: new() 
     {
         void Insert(T item);
 
