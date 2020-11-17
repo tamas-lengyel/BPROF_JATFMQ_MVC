@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Data
 {
-    class CarRentingDbContext : DbContext
+    public class CarRentingDbContext : DbContext
     {
         public CarRentingDbContext(DbContextOptions<CarRentingDbContext> opt) : base(opt)
         {
