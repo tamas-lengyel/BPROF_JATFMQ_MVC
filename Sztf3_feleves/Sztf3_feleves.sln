@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sztf3_feleves", "Sztf3_fele
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{3C45FEE1-F8E0-4220-8FAE-5B4FBE7A0CC4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{36430756-F40F-464E-ACD6-7518B007EC90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3C45FEE1-F8E0-4220-8FAE-5B4FBE7A0CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C45FEE1-F8E0-4220-8FAE-5B4FBE7A0CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C45FEE1-F8E0-4220-8FAE-5B4FBE7A0CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36430756-F40F-464E-ACD6-7518B007EC90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36430756-F40F-464E-ACD6-7518B007EC90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36430756-F40F-464E-ACD6-7518B007EC90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36430756-F40F-464E-ACD6-7518B007EC90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

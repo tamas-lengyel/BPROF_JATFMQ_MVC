@@ -27,5 +27,9 @@ namespace Models
         public string SalonId { get; set; }
         [NotMapped]
         public virtual Salons Salon { get; set; }
+
+        public string RenterId { get; set; }
+        [NotMapped]
+        public virtual Renters Renter { get; set; }
     }
 }
