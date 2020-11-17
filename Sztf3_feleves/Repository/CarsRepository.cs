@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Repository
 {
-    class CarsRepository : IRepository<Cars>
+    public class CarsRepository : IRepository<Cars>
     {
         CarRentingDbContext context = new CarRentingDbContext();
 
