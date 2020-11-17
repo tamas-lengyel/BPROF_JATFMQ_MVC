@@ -9,16 +9,10 @@ namespace Repository
     {
         void Insert(T item);
 
-        void Delete(T item);
-
         void Delete(string uid);
-
-        T FindItem(string uid);
 
         IQueryable<T> Print();
 
         void Update(string oldid, T newitem);
-
-        void SaveDb();
     }
 }
