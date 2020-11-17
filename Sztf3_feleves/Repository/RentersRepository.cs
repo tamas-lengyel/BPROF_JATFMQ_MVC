@@ -40,6 +40,8 @@ namespace Repository
             oldRenter.Email = newitem.Email;
             oldRenter.PhoneNumber = newitem.PhoneNumber;
             oldRenter.RentedDays = newitem.RentedDays;
+
+            context.SaveChanges();
         }
     }
 }
