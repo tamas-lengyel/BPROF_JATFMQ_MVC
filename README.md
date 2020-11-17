@@ -1,0 +1,1 @@
+# Szoftvertervezés és -fejlesztés Szakirány első féléves feladata.
