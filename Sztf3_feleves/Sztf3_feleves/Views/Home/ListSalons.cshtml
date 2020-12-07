@@ -1,92 +1,90 @@
 ﻿@model IEnumerable<Models.Salons>
 
-@{
-    Layout = null;
-}
-
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>ListSalons</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link href="~/navbar.css" rel="stylesheet" />
-</head>
-<body>
-    <div class="navbar">
-        <div class="right-side">
-            <div class="brand">
-                <div>CAR RENTING SERVICE</div>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>ListSalons</title>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href="~/navbar.css" rel="stylesheet" />
+        <link href="~/table.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="right-side">
+                <div class="brand">
+                    <div>CAR RENTING SERVICE</div>
+                </div>
+            </div>
+
+            <div class="left-side">
+                <div class="nav-link-wrapper">
+                    <a href="/">Home</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/Home/Add">Add</a>
+                </div>
+
+                <div class="nav-link-wrapper active-nav-link">
+                    <a href="/Home/List">List</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="#">Stats</a>
+                </div>
             </div>
         </div>
 
-        <div class="left-side">
-            <div class="nav-link-wrapper">
-                <a href="/">Home</a>
-            </div>
+        <input type="button" onclick="location.href='/Home/List';" value="Back" />
 
-            <div class="nav-link-wrapper">
-                <a href="/Home/Add">Add</a>
-            </div>
+        <div class="container">
 
-            <div class="nav-link-wrapper active-nav-link">
-                <a href="/Home/List">List</a>
-            </div>
-
-            <div class="nav-link-wrapper">
-                <a href="#">Stats</a>
-            </div>
+            <table class="table">
+                <thead class="table-header">
+                    <tr class="table-header">
+                        @*<th>
+                            @Html.DisplayNameFor(model => model.SalonId)
+                        </th>*@
+                        <th class="header__item">
+                            @Html.DisplayNameFor(model => model.City)
+                        </th>
+                        <th class="header__item">
+                            @Html.DisplayNameFor(model => model.Address)
+                        </th>
+                        <th class="header__item">
+                            @Html.DisplayNameFor(model => model.PostalCode)
+                        </th>
+                        <th class="header__item"></th>
+                    </tr>
+                </thead>
+                <tbody class="table-content">
+                    @foreach (var item in Model)
+                    {
+                        <tr class="table-row">
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.SalonId)
+                            </td>*@
+                            <td class="table-data">
+                                @Html.DisplayFor(modelItem => item.City)
+                            </td>
+                            <td class="table-data">
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td class="table-data">
+                                @Html.DisplayFor(modelItem => item.PostalCode)
+                            </td>
+                            <td class="table-data">
+                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) |
+                                <a href="/Home/AddNewCar?id=@item.SalonId">Add Car</a>
+                                <br />
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
-    </div>
-
-    @*<p>
-        <a asp-action="Create">Create New</a>
-    </p>*@
-
-    <table class="table">
-        <thead>
-            <tr>
-                @*<th>
-                        @Html.DisplayNameFor(model => model.SalonId)
-                    </th>*@
-                <th>
-                    @Html.DisplayNameFor(model => model.City)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Address)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PostalCode)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.SalonId)
-                        </td>*@
-                    <td>
-                        @Html.DisplayFor(modelItem => item.City)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Address)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PostalCode)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) |
-                        <a href="/Home/AddNewCar?id=@item.SalonId">Add Car</a>
-                        <br />
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</body>
+    </body>
 </html>

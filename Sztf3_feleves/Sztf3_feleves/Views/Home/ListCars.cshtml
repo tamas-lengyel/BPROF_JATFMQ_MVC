@@ -1,9 +1,5 @@
 ﻿@model IEnumerable<Models.Cars>
 
-@{
-    Layout = null;
-}
-
 <!DOCTYPE html>
 
 <html>
@@ -12,6 +8,7 @@
     <title>ListCars</title>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="~/navbar.css" rel="stylesheet" />
+    <link href="~/table.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar">
@@ -40,95 +37,96 @@
         </div>
     </div>
 
-    @*<p>
-        <a asp-action="Create">Create New</a>
-    </p>*@
+    <input type="button" onclick="location.href = '/Home/List';" value="Back" />
 
-    <table class="table">
-        <thead>
-            <tr>
-                @*<th>
-                        @Html.DisplayNameFor(model => model.CarId)
-                    </th>*@
-                <th>
-                    @Html.DisplayNameFor(model => model.Make)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Model)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ModelYear)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.BodyType)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CombFuelEco)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Available)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PricePerDay)
-                </th>
-                @*<th>
-                        @Html.DisplayNameFor(model => model.SalonId)
+    <div class="container">
+
+        <table class="table">
+            <thead class="table-header">
+                <tr class="table-header">
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.CarId)
+                        </th>*@
+                    <th class="header__item">
+                        @Html.DisplayNameFor(model => model.Make)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.RenterId)
-                    </th>*@
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.CarId)
-                        </td>*@
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Make)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Model)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ModelYear)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.BodyType)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CombFuelEco)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Available)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PricePerDay)
-                    </td>
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.SalonId)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.RenterId)
-                        </td>*@
-                <td>
-                    @if (item.Available)
-                    {
-                        <input type="button" onclick="location.href='/Home/AddNewRenter?Id=@item.CarId';" value="Rent this Car" />
-                    }
-                    else
-                    {
-                        <p>Rented...</p>
-                    }
-
-
-                </td>
+                    <th class="header__item">
+                        @Html.DisplayNameFor(model => model.Model)
+                    </th>
+                    <th class="header__item">
+                        @Html.DisplayNameFor(model => model.ModelYear)
+                    </th>
+                    <th class="header__item">
+                        @Html.DisplayNameFor(model => model.BodyType)
+                    </th>
+                    <th class="header__item">
+                        @Html.DisplayNameFor(model => model.CombFuelEco)
+                    </th>
+                    <th class="header__item">
+                        @Html.DisplayNameFor(model => model.Available)
+                    </th>
+                    <th class="header__item">
+                        @Html.DisplayNameFor(model => model.PricePerDay)
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.SalonId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.RenterId)
+                        </th>*@
+                    <th class="header__item"></th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody class="table-content">
+                @foreach (var item in Model)
+                {
+                    <tr class="table-row">
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.CarId)
+                            </td>*@
+                        <td class="table-data">
+                            @Html.DisplayFor(modelItem => item.Make)
+                        </td>
+                        <td class="table-data">
+                            @Html.DisplayFor(modelItem => item.Model)
+                        </td>
+                        <td class="table-data">
+                            @Html.DisplayFor(modelItem => item.ModelYear)
+                        </td>
+                        <td class="table-data">
+                            @Html.DisplayFor(modelItem => item.BodyType)
+                        </td>
+                        <td class="table-data">
+                            @Html.DisplayFor(modelItem => item.CombFuelEco)
+                        </td>
+                        <td class="table-data">
+                            @Html.DisplayFor(modelItem => item.Available)
+                        </td>
+                        <td class="table-data">
+                            @Html.DisplayFor(modelItem => item.PricePerDay)
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.SalonId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RenterId)
+                            </td>*@
+                        <td class="table-data">
+                            @if (item.Available)
+                            {
+                                <input type="button" onclick="location.href='/Home/AddNewRenter?Id=@item.CarId';" value="Rent this Car" />
+                            }
+                            else
+                            {
+                                <span>Rented...</span>
+                            }
+
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

@@ -112,6 +112,8 @@ namespace Sztf3_feleves.Controllers
             rentersLogic.InsertRenter(r3);
             rentersLogic.InsertRenter(r4);
 
+            
+
             return RedirectToAction(nameof(Index));
         }
 

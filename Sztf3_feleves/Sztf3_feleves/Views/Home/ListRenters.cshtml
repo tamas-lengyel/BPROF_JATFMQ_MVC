@@ -1,18 +1,15 @@
 ﻿@model IEnumerable<Models.Renters>
 
-@{
-    Layout = null;
-}
-
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>ListRenters</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link href="~/navbar.css" rel="stylesheet" />
-</head>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>ListRenters</title>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href="~/navbar.css" rel="stylesheet" />
+        <link href="~/table.css" rel="stylesheet" />
+    </head>
 <body>
     <div class="navbar">
         <div class="right-side">
@@ -40,82 +37,80 @@
         </div>
     </div>
 
-    @*<p>
-        <a asp-action="Create">Create New</a>
-    </p>*@
+    <input type="button" onclick="location.href='/Home/List';" value="Back" />
 
-    <table class="table">
-        <thead>
-            <tr>
-                @*<th>
+    <div class="container">
+
+        <table class="table">
+            <thead class="table-header">
+                <tr class="table-header">
+                    @*<th>
                         @Html.DisplayNameFor(model => model.RenterId)
                     </th>*@
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PostalCode)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.City)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Address)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Email)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PhoneNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.RentedDays)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CarId)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    @*<td>
+                    <th class="header__item">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th class="header__item">
+                        @Html.DisplayNameFor(model => model.PostalCode)
+                    </th>
+                    <th class="header__item">
+                        @Html.DisplayNameFor(model => model.City)
+                    </th>
+                    <th class="header__item">
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <th class="header__item">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th class="header__item">
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </th>
+                    <th class="header__item">
+                        @Html.DisplayNameFor(model => model.RentedDays)
+                    </th>
+                    @*<th>
+                        @Html.DisplayNameFor(model => model.CarId)
+                    </th>*@
+                    <th class="header__item"></th>
+                </tr>
+            </thead>
+            <tbody class="table-content">
+                @foreach (var item in Model)
+                {
+                    <tr class="table-row">
+                        @*<td>
                             @Html.DisplayFor(modelItem => item.RenterId)
                         </td>*@
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PostalCode)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.City)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Address)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PhoneNumber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RentedDays)
-                    </td>
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.CarId)
-                        </td>*@
-                    <td>
-                        @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        <td class="table-data">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td class="table-data">
+                            @Html.DisplayFor(modelItem => item.PostalCode)
+                        </td>
+                        <td class="table-data">
+                            @Html.DisplayFor(modelItem => item.City)
+                        </td>
+                        <td class="table-data">
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td class="table-data">
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td class="table-data">
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td class="table-data">
+                            @Html.DisplayFor(modelItem => item.RentedDays)
+                        </td>
+                        <td class="table-data">
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
