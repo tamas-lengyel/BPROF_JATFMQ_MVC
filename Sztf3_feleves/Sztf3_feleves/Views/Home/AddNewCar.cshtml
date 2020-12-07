@@ -1,0 +1,69 @@
+﻿@model string
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add New Car</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="~/navbar.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar">
+        <div class="right-side">
+            <div class="brand">
+                <div>CAR RENTING SERVICE</div>
+            </div>
+        </div>
+
+        <div class="left-side">
+            <div class="nav-link-wrapper">
+                <a href="/">Home</a>
+            </div>
+
+            <div class="nav-link-wrapper active-nav-link">
+                <a href="/Home/Add">Add</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="/Home/List">List</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="#">Stats</a>
+            </div>
+        </div>
+    </div>
+
+    <form action="/Home/AddNewCar" method="post">
+        Make:
+        <input type="text" name="Make" /> <br />
+        Model:
+        <input type="text" name="Model" /> <br />
+        Model Year:
+        <input type="number" name="ModelYear" max="2021" /> <br />
+        Body Type:
+        <select name="BodyType">
+            <option value="hatchback">Hatchback</option>
+            <option value="sedan">Sedan</option>
+            <option value="suv">SUV</option>
+            <option value="coupe">Coupe</option>
+            <option value="van">Van</option>
+            <option value="wagon">Wagon</option>
+        </select> <br />
+        Combined Fuel Economy:
+        <input type="number" name="CombFuelEco" step="0.1" /> <br />
+        Price Per Day:
+        <input type="number" name="PricePerDay" /> <br />
+
+        <input type="hidden" name="Available" value="true" />
+        <input type="hidden" name="SalonId" value="@Model" />
+
+        <input type="submit" value="Add" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,134 @@
+﻿@model IEnumerable<Models.Cars>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListCars</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="~/navbar.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar">
+        <div class="right-side">
+            <div class="brand">
+                <div>CAR RENTING SERVICE</div>
+            </div>
+        </div>
+
+        <div class="left-side">
+            <div class="nav-link-wrapper">
+                <a href="/">Home</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="/Home/Add">Add</a>
+            </div>
+
+            <div class="nav-link-wrapper active-nav-link">
+                <a href="/Home/List">List</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="#">Stats</a>
+            </div>
+        </div>
+    </div>
+
+    @*<p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+
+    <table class="table">
+        <thead>
+            <tr>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.CarId)
+                    </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.Make)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Model)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModelYear)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BodyType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CombFuelEco)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Available)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PricePerDay)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.SalonId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RenterId)
+                    </th>*@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.CarId)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Make)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ModelYear)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BodyType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CombFuelEco)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Available)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PricePerDay)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.SalonId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RenterId)
+                        </td>*@
+                <td>
+                    @if (item.Available)
+                    {
+                        <input type="button" onclick="location.href='/Home/AddNewRenter?Id=@item.CarId';" value="Rent this Car" />
+                    }
+                    else
+                    {
+                        <p>Rented...</p>
+                    }
+
+
+                </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

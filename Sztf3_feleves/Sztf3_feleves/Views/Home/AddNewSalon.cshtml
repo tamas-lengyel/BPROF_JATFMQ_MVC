@@ -8,18 +8,9 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <title>Add New Salon</title>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="~/navbar.css" rel="stylesheet" />
-
-    <style>
-        body {
-            background-image: url("76633_2.jpg");
-            background-size: cover;
-        }
-        
-    </style>
-
-    <title>CAR RENTING SERVICE</title>
 </head>
 <body>
     <div class="navbar">
@@ -30,11 +21,11 @@
         </div>
 
         <div class="left-side">
-            <div class="nav-link-wrapper active-nav-link">
+            <div class="nav-link-wrapper">
                 <a href="/">Home</a>
             </div>
 
-            <div class="nav-link-wrapper">
+            <div class="nav-link-wrapper active-nav-link">
                 <a href="/Home/Add">Add</a>
             </div>
 
@@ -45,11 +36,18 @@
             <div class="nav-link-wrapper">
                 <a href="#">Stats</a>
             </div>
-
-            <div class="nav-link-wrapper">
-                <a href="/Home/GenerateDB" onclick="alert('Database filled with Data')">Generate Data</a>
-            </div>
         </div>
     </div>
+
+    <form action="/Home/AddNewSalon" method="post">
+        City:
+        <input type="text" name="City" maxlength="30" /> <br />
+        Address:
+        <input type="text" name="Address" maxlength="50" /> <br />
+        Postal Code:
+        <input type="text" name="PostalCode" maxlength="20" /> <br />
+
+        <input type="submit" value="Add" />
+    </form>
 </body>
 </html>

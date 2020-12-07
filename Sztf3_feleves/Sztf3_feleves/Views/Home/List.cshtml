@@ -8,18 +8,9 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <title>List</title>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="~/navbar.css" rel="stylesheet" />
-
-    <style>
-        body {
-            background-image: url("76633_2.jpg");
-            background-size: cover;
-        }
-        
-    </style>
-
-    <title>CAR RENTING SERVICE</title>
 </head>
 <body>
     <div class="navbar">
@@ -30,7 +21,7 @@
         </div>
 
         <div class="left-side">
-            <div class="nav-link-wrapper active-nav-link">
+            <div class="nav-link-wrapper">
                 <a href="/">Home</a>
             </div>
 
@@ -38,18 +29,18 @@
                 <a href="/Home/Add">Add</a>
             </div>
 
-            <div class="nav-link-wrapper">
+            <div class="nav-link-wrapper active-nav-link">
                 <a href="/Home/List">List</a>
             </div>
 
             <div class="nav-link-wrapper">
                 <a href="#">Stats</a>
             </div>
-
-            <div class="nav-link-wrapper">
-                <a href="/Home/GenerateDB" onclick="alert('Database filled with Data')">Generate Data</a>
-            </div>
         </div>
     </div>
+
+    <a href="/Home/ListSalons">List Salons</a>
+    <a href="/Home/ListCars">List Cars</a>
+    <a href="/Home/ListRenters">List Renters</a>
 </body>
 </html>

@@ -37,6 +37,8 @@ namespace Sztf3_feleves
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
+
             app.UseMvcWithDefaultRoute();
 
             app.UseRouting();
