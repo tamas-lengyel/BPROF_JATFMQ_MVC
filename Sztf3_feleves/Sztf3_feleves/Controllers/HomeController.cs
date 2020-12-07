@@ -167,6 +167,18 @@ namespace Sztf3_feleves.Controllers
             return View(carsLogic.PrintCars());
         }
 
+        [HttpGet]
+        public IActionResult EditCar(string id)
+        {
+            return View(carsLogic.PrintCars());
+        }
+
+        [HttpPost]
+        public IActionResult EditCar(string oldid, Cars c)
+        {
+            return View(carsLogic.PrintCars());
+        }
+
         /*****************************************************************/
         /*************************** Renter ******************************/
         /*****************************************************************/

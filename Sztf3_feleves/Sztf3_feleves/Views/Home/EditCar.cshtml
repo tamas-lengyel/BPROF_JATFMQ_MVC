@@ -1,0 +1,42 @@
+﻿@model string
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit Car</title>
+</head>
+<body>
+    <form action="/Home/EditCar" method="post">
+        Make:
+        <input type="text" name="Make" /> <br />
+        Model:
+        <input type="text" name="Model" /> <br />
+        Model Year:
+        <input type="number" name="ModelYear" max="2021" /> <br />
+        Body Type:
+        <select name="BodyType">
+            <option value="Hatchback">Hatchback</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Suv">SUV</option>
+            <option value="Coupe">Coupe</option>
+            <option value="Van">Van</option>
+            <option value="Wagon">Wagon</option>
+        </select> <br />
+        Combined Fuel Economy:
+        <input type="number" name="CombFuelEco" step="0.1" /> <br />
+        Price Per Day:
+        <input type="number" name="PricePerDay" /> <br />
+
+        <input type="radio" name="Available" value="true" />
+        <label for="true">True</label><br>
+        <input type="radio" name="Available" value="false" />
+        <label for="false">False</label><br>
+
+        <input type="hidden" name="SalonId" value="@Model" />
+
+        <input type="submit" value="Edit Car" />
+    </form>
+</body>
+</html>
