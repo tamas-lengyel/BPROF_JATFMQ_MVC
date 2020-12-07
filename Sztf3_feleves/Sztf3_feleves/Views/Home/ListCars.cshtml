@@ -11,6 +11,8 @@
     <link href="~/table.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="bg-image"></div>
+
     <div class="navbar">
         <div class="right-side">
             <div class="brand">
@@ -44,9 +46,6 @@
         <table class="table">
             <thead class="table-header">
                 <tr class="table-header">
-                    @*<th>
-                            @Html.DisplayNameFor(model => model.CarId)
-                        </th>*@
                     <th class="header__item">
                         @Html.DisplayNameFor(model => model.Make)
                     </th>
@@ -68,12 +67,6 @@
                     <th class="header__item">
                         @Html.DisplayNameFor(model => model.PricePerDay)
                     </th>
-                    @*<th>
-                            @Html.DisplayNameFor(model => model.SalonId)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.RenterId)
-                        </th>*@
                     <th class="header__item"></th>
                 </tr>
             </thead>
@@ -81,9 +74,6 @@
                 @foreach (var item in Model)
                 {
                     <tr class="table-row">
-                        @*<td>
-                                @Html.DisplayFor(modelItem => item.CarId)
-                            </td>*@
                         <td class="table-data">
                             @Html.DisplayFor(modelItem => item.Make)
                         </td>
@@ -105,12 +95,6 @@
                         <td class="table-data">
                             @Html.DisplayFor(modelItem => item.PricePerDay)
                         </td>
-                        @*<td>
-                                @Html.DisplayFor(modelItem => item.SalonId)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.RenterId)
-                            </td>*@
                         <td class="table-data">
                             @if (item.Available)
                             {
@@ -121,7 +105,7 @@
                                 <span>Rented...</span>
                             }
 
-
+                            <input type="button" onclick="location.href='/Home/EditCar?Id=@item.CarId';" value="Edit" />
                         </td>
                     </tr>
                 }

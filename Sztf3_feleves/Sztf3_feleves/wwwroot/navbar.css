@@ -1,10 +1,14 @@
 ﻿/*Master styles*/
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Lato", sans-serif;
     margin: 0px;
     padding: 0px;
-    box-sizing: border-box;
-    background-color: #666666;
+    height: 100%;
+    /*background-color: #666666;*/
 }
 
 /*.container {
@@ -17,6 +21,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 38px;
+    background-color: transparent;
 }
 
 .right-side {

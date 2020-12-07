@@ -4,10 +4,15 @@
 }
 
 body {
-    padding: 24px;
-    font-family: 'Source Sans Pro', sans-serif;
-    margin: 0;
-    background-color: #666666;
+    background-image: url("76633_2.jpg") ;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -15,13 +20,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container {
-    max-width: 1600px;
+    max-width: 1000px;
     margin-right: auto;
     margin-left: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-color: transparent;
 }
 
 .table {
