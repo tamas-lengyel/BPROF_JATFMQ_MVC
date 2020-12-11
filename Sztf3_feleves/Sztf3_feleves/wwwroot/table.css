@@ -1,18 +1,17 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Lato');
-*, *:before, *:after {
+*/*, *:before, *:after */{
     box-sizing: border-box;
 }
 
-body {
-    background-image: url("76633_2.jpg") ;
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
-    /* Full height */
-    height: 100%;
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.bg-image > img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background-color: black;
+    z-index: -1;
+    opacity: 0.7;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -20,19 +19,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1600px;
     margin-right: auto;
     margin-left: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 75vh;
     background-color: transparent;
 }
 
 .table {
     width: 100%;
-    /*border: 1px solid #eee;*/
+    box-shadow: 0px 5px 30px 0px rgba(0,0,0,.5);
+    border-spacing: 0px;
 }
 
 .table-header {
@@ -49,11 +49,11 @@ h1, h2, h3, h4, h5, h6 {
     padding: 18px 0;
 }
 
-.table-row:nth-of-type(odd) {
-    background: #eee;
-}
+    .table-row:nth-of-type(odd) {
+        background: #CCCCCC;
+    }
 .table-row:nth-of-type(even) {
-    background: #fff;
+    background: #eee;
 }
 
 .table-data, .header__item {
