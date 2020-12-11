@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sztf3_feleves", "Sztf3_feleves\Sztf3_feleves.csproj", "{4A3C33F5-F2DF-4461-91B1-14FEE7749AF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sztf3_feleves", "Sztf3_feleves\Sztf3_feleves.csproj", "{4A3C33F5-F2DF-4461-91B1-14FEE7749AF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{3C45FEE1-F8E0-4220-8FAE-5B4FBE7A0CC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{3C45FEE1-F8E0-4220-8FAE-5B4FBE7A0CC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{36430756-F40F-464E-ACD6-7518B007EC90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{36430756-F40F-464E-ACD6-7518B007EC90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{79CAF872-8B26-4B50-9D7E-928B5A15C58C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{79CAF872-8B26-4B50-9D7E-928B5A15C58C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{C5FAC2A0-9739-40BD-B691-2FDB29D69F59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\Logic.csproj", "{C5FAC2A0-9739-40BD-B691-2FDB29D69F59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{6D494C4F-936F-4933-A968-AF201589D405}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{C5FAC2A0-9739-40BD-B691-2FDB29D69F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5FAC2A0-9739-40BD-B691-2FDB29D69F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5FAC2A0-9739-40BD-B691-2FDB29D69F59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D494C4F-936F-4933-A968-AF201589D405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D494C4F-936F-4933-A968-AF201589D405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D494C4F-936F-4933-A968-AF201589D405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D494C4F-936F-4933-A968-AF201589D405}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
