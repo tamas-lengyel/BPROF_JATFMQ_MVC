@@ -90,21 +90,21 @@ namespace Sztf3_feleves.Controllers
             carsLogic.InsertCar(c8);
             /*Renters ************************************/
 
-            Renters r = new Renters { RenterId = Guid.NewGuid().ToString(), Name="Moll Gothliff", 
-                PostalCode="4384", City="Vlissingen", Address= "79 Lighthouse Bay Plaza", 
-                Email= "mgothliff9@upenn.edu", PhoneNumber="+31 880 308 7288", RentedDays=11, CarId=c.CarId };
-            Renters r1 = new Renters { RenterId = Guid.NewGuid().ToString(), Name= "Carol-jean Pantone", 
-                PostalCode= "571 36", City= "Nässjö", Address= "1614 Spohn Point", 
-                Email= "cpantoneh@jugem.jp", PhoneNumber="+46 697 322 8112", RentedDays=4, CarId=c4.CarId };
-            Renters r2 = new Renters { RenterId = Guid.NewGuid().ToString(), Name= "Odilia Olivello", 
-                PostalCode= "11250-000", City= "Guanshan", Address= "9298 Dexter Pass", 
-                Email= "oolivelloc@seesaa.net", PhoneNumber= "+86 918 333 5232", RentedDays=21, CarId=c5.CarId };
+            Renters r = new Renters { RenterId = Guid.NewGuid().ToString(), Name="Kiss Gabor", 
+                PostalCode="4034", City="Debrecen", Address= "Elso utca 1.", 
+                Email= "kissgabor@upenn.edu", PhoneNumber="+31 880 308 7288", RentedDays=11, CarId=c.CarId };
+            Renters r1 = new Renters { RenterId = Guid.NewGuid().ToString(), Name= "Nagy Aron", 
+                PostalCode= "1111", City= "Budapest", Address= "Masodik utca 2.", 
+                Email= "nagyaron@jugem.jp", PhoneNumber="+46 697 322 8112", RentedDays=4, CarId=c4.CarId };
+            Renters r2 = new Renters { RenterId = Guid.NewGuid().ToString(), Name= "Toth Eszter", 
+                PostalCode= "1020", City= "Bécs", Address= "Harmadik utca 3.", 
+                Email= "totheszter@seesaa.net", PhoneNumber= "+86 918 333 5232", RentedDays=21, CarId=c5.CarId };
             Renters r3 = new Renters { RenterId = Guid.NewGuid().ToString(), Name= "Jerrome Wrightem", 
-                PostalCode= "6821", City= "Daqiao", Address= "80 Havey Alley", 
+                PostalCode= "90019", City= "Los Angeles", Address= "80 Havey Alley", 
                 Email= "jwrightemk@stanford.edu", PhoneNumber= "+86 619 977 2794", RentedDays=30, CarId=c7.CarId };
-            Renters r4 = new Renters { RenterId = Guid.NewGuid().ToString(), Name= "Etheline Geroldo", 
-                PostalCode= "3352", City= "Pampamarca", Address= "44638 Schiller Pass", 
-                Email= "egeroldog@prnewswire.com", PhoneNumber= "+51 442 752 0329", RentedDays=4, CarId=c8.CarId };
+            Renters r4 = new Renters { RenterId = Guid.NewGuid().ToString(), Name= "Lakatos Brendon", 
+                PostalCode= "9028", City= "Győr", Address= "Negyedik utca 4.", 
+                Email= "lakatosbrendong@prnewswire.com", PhoneNumber= "+51 442 752 0329", RentedDays=4, CarId=c8.CarId };
 
             rentersLogic.InsertRenter(r);
             rentersLogic.InsertRenter(r1);
