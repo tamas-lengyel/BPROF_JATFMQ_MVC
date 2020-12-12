@@ -26,6 +26,11 @@ namespace Logic
             carrepo.Insert(car);
         }
 
+        public Cars GetOneCar(string carid)
+        {
+            return carrepo.GetOneObj(carid);
+        }
+
         public IQueryable<Cars> PrintCars()
         {
             return carrepo.Print();
@@ -34,6 +39,11 @@ namespace Logic
         public void UpdateCar(string carid, Cars car)
         {
             carrepo.Update(carid, car);
+        }
+
+        public void Save()
+        {
+            carrepo.Save();
         }
     }
 }

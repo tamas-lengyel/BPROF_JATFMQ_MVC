@@ -107,8 +107,10 @@
                             {
                                 <span>Rented...</span>
                             }
-
+                            <br />
                             <input type="button" onclick="location.href='/Home/EditCar?Id=@item.CarId';" value="Edit" />
+                            <br />
+                            <input type="button" onclick="location.href='/Home/DeleteCar?Id=@item.CarId';" value="Delete" />
                         </td>
                     </tr>
                 }

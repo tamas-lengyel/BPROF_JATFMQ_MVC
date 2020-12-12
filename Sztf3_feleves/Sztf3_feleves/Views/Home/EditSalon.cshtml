@@ -1,0 +1,26 @@
+﻿@using Models
+@model Salons
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditSalon</title>
+</head>
+<body>
+    <form action="/Home/EditSalon" method="post">
+        City:
+        <input type="text" name="City" maxlength="30" value="@Model.City" /> <br />
+        Address:
+        <input type="text" name="Address" maxlength="50" value="@Model.Address" /> <br />
+        Postal Code:
+        <input type="text" name="PostalCode" maxlength="20" value="@Model.PostalCode" /> <br />
+
+        <input type="hidden" name="SalonId" value="@Model.SalonId" />
+        <input type="hidden" name="Car" value="@Model.Car" />
+
+        <input type="submit" value="Edit Salon" />
+    </form>
+</body>
+</html>

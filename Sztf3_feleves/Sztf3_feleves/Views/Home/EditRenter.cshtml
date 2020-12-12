@@ -1,0 +1,34 @@
+﻿@using Models
+@model Renters
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditRenter</title>
+</head>
+<body>
+    <form action="/Home/EditRenter" method="post">
+        Name:
+        <input type="text" name="Name" value="@Model.Name"/> <br />
+        Postal Code:
+        <input type="text" name="PostalCode" value="@Model.PostalCode"/> <br />
+        City:
+        <input type="text" name="City" value="@Model.City"/> <br />
+        Address:
+        <input type="text" name="Address" value="@Model.Address"/> <br />
+        Email:
+        <input type="email" name="Email" value="@Model.Email"/> <br />
+        Phone Number:
+        <input type="text" name="PhoneNumber" value="@Model.PhoneNumber"/> <br />
+        Rented Days:
+        <input type="number" name="RentedDays" value="@Model.RentedDays"/> <br />
+
+        <input type="hidden" name="CarId" value="@Model.CarId" />
+        <input type="hidden" name="RenterId" value="@Model.RenterId" />
+
+        <input type="submit" value="Edit Renter" />
+    </form>
+</body>
+</html>

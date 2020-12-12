@@ -18,6 +18,11 @@ namespace Repository
             context.SaveChanges();
         }
 
+        public Salons GetOneObj(string uid)
+        {
+            return context.Salons.FirstOrDefault(x => x.SalonId == uid);
+        }
+
         public void Insert(Salons item)
         {
             context.Salons.Add(item);
@@ -29,6 +34,11 @@ namespace Repository
             return context.Salons.AsQueryable();
         }
 
+        public void Save()
+        {
+            context.SaveChanges();
+        }
+
         public void Update(string oldid, Salons newitem)
         {
             var oldSalon = context.Salons.FirstOrDefault(t => t.SalonId == oldid);
@@ -36,12 +46,7 @@ namespace Repository
             oldSalon.PostalCode = newitem.PostalCode;
             oldSalon.City = newitem.City;
             oldSalon.Address = newitem.Address;
-
-            oldSalon.Car.Clear();
-            foreach (var item in newitem.Car)
-            {
-                oldSalon.Car.Add(item);
-            }
+            oldSalon.Car = newitem.Car;
 
             context.SaveChanges();
         }

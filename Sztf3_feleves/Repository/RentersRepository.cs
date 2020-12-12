@@ -18,6 +18,11 @@ namespace Repository
             context.SaveChanges();
         }
 
+        public Renters GetOneObj(string uid)
+        {
+            return context.Renters.FirstOrDefault(x => x.RenterId == uid);
+        }
+
         public void Insert(Renters item)
         {
             context.Renters.Add(item);
@@ -27,6 +32,11 @@ namespace Repository
         public IQueryable<Renters> Print()
         {
             return context.Renters.AsQueryable();
+        }
+
+        public void Save()
+        {
+            context.SaveChanges();
         }
 
         public void Update(string oldid, Renters newitem)
@@ -40,6 +50,7 @@ namespace Repository
             oldRenter.Email = newitem.Email;
             oldRenter.PhoneNumber = newitem.PhoneNumber;
             oldRenter.RentedDays = newitem.RentedDays;
+            oldRenter.Car = newitem.Car;
 
             context.SaveChanges();
         }

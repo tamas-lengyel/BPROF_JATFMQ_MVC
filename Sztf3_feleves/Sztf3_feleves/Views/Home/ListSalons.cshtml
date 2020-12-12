@@ -48,9 +48,6 @@
         <table class="table">
             <thead class="table-header">
                 <tr class="table-header">
-                    @*<th>
-                        @Html.DisplayNameFor(model => model.SalonId)
-                    </th>*@
                     <th class="header__item">
                         @Html.DisplayNameFor(model => model.City)
                     </th>
@@ -67,9 +64,6 @@
                 @foreach (var item in Model)
                 {
                     <tr class="table-row">
-                        @*<td>
-                            @Html.DisplayFor(modelItem => item.SalonId)
-                        </td>*@
                         <td class="table-data">
                             @Html.DisplayFor(modelItem => item.City)
                         </td>
@@ -80,10 +74,9 @@
                             @Html.DisplayFor(modelItem => item.PostalCode)
                         </td>
                         <td class="table-data">
-                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) |
-                            <a href="/Home/AddNewCar?id=@item.SalonId">Add Car</a>
+                            <input type="button" onclick="location.href='/Home/EditSalon?Id=@item.SalonId';" value="Edit" />
                             <br />
+                            <input type="button" onclick="location.href='/Home/DeleteSalon?Id=@item.SalonId';" value="Delete" />
                         </td>
                     </tr>
                 }

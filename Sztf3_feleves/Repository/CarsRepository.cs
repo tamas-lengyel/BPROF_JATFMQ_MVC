@@ -18,6 +18,11 @@ namespace Repository
             context.SaveChanges();
         }
 
+        public Cars GetOneObj(string uid)
+        {
+            return context.Cars.FirstOrDefault(x => x.CarId == uid);
+        }
+
         public void Insert(Cars item)
         {
             context.Cars.Add(item);
@@ -29,9 +34,14 @@ namespace Repository
             return context.Cars.AsQueryable();
         }
 
+        public void Save()
+        {
+            context.SaveChanges();
+        }
+
         public void Update(string oldid, Cars newitem)
         {
-            var oldCar = context.Cars.FirstOrDefault(t => t.CarId == oldid);
+            var oldCar = GetOneObj(oldid);
 
             oldCar.Make = newitem.Make;
             oldCar.Model = newitem.Model;

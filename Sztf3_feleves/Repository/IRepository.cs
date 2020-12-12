@@ -14,5 +14,9 @@ namespace Repository
         IQueryable<T> Print();
 
         void Update(string oldid, T newitem);
+
+        T GetOneObj(string uid);
+
+        void Save();
     }
 }

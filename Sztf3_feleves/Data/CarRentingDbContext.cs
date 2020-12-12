@@ -45,7 +45,8 @@ namespace Data
                 entity
                 .HasOne(Cars => Cars.Salon)
                 .WithMany(Salons => Salons.Car)
-                .HasForeignKey(Cars => Cars.SalonId);
+                .HasForeignKey(Cars => Cars.SalonId)
+                .OnDelete(DeleteBehavior.Cascade);
             });
         }
 

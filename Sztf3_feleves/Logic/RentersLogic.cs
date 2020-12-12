@@ -26,6 +26,11 @@ namespace Logic
             renterrepo.Insert(renter);
         }
 
+        public Renters GetOneRenter(string renterid)
+        {
+            return renterrepo.GetOneObj(renterid);
+        }
+
         public IQueryable<Renters> PrintRenters()
         {
             return renterrepo.Print();
@@ -34,6 +39,11 @@ namespace Logic
         public void UpdateRenter(string renterid, Renters renter)
         {
             renterrepo.Update(renterid, renter);
+        }
+
+        public void Save()
+        {
+            renterrepo.Save();
         }
     }
 }

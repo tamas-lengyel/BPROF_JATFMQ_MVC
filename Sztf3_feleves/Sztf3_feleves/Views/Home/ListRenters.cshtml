@@ -72,9 +72,9 @@
                     <th class="header__item">
                         @Html.DisplayNameFor(model => model.RentedDays)
                     </th>
-                    @*<th>
-                        @Html.DisplayNameFor(model => model.CarId)
-                    </th>*@
+                    <th class="table-data">
+                        <p>Rented Car</p>
+                    </th>
                     <th class="header__item"></th>
                 </tr>
             </thead>
@@ -82,9 +82,6 @@
                 @foreach (var item in Model)
                 {
                     <tr class="table-row">
-                        @*<td>
-                            @Html.DisplayFor(modelItem => item.RenterId)
-                        </td>*@
                         <td class="table-data">
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
@@ -107,9 +104,12 @@
                             @Html.DisplayFor(modelItem => item.RentedDays)
                         </td>
                         <td class="table-data">
-                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                            @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                            <span>@Html.DisplayFor(modelItem => item.Car.Make) @Html.DisplayFor(modelItem => item.Car.Model)</span>
+                        </td>
+                        <td class="table-data">
+                            <input type="button" onclick="location.href='/Home/DeleteRenter?Id=@item.RenterId';" value="Delete" />
+                            <br />
+                            <input type="button" onclick="location.href='/Home/EditRenter?Id=@item.RenterId';" value="Edit" />
                         </td>
                     </tr>
                 }

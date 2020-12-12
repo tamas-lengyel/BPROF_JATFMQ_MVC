@@ -26,6 +26,11 @@ namespace Logic
             salonrepo.Insert(salon);
         }
 
+        public Salons GetOneSalon(string salonid)
+        {
+            return salonrepo.GetOneObj(salonid);
+        }
+
         public IQueryable<Salons> PrintSalons()
         {
             return salonrepo.Print();
@@ -35,5 +40,10 @@ namespace Logic
         {
             salonrepo.Update(salonid, salon);
         }
+
+        //public void Save()
+        //{
+        //    salonrepo.Save();
+        //}
     }
 }

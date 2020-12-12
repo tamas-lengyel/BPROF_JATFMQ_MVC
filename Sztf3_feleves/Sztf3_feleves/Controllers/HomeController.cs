@@ -53,11 +53,6 @@ namespace Sztf3_feleves.Controllers
             Salons s4 = new Salons { SalonId = Guid.NewGuid().ToString(), City = "Sopron", 
                 Address = "Zrínyi Miklós u. 32", PostalCode = "9400" };
 
-            salonsLogic.InsertSalon(s);
-            salonsLogic.InsertSalon(s1);
-            salonsLogic.InsertSalon(s2);
-            salonsLogic.InsertSalon(s3);
-            salonsLogic.InsertSalon(s4);
             /*Cars ***************************************/
 
             Cars c = new Cars { CarId = Guid.NewGuid().ToString(), Make = "Audi", Model = "A6", ModelYear = 2019, 
@@ -79,15 +74,6 @@ namespace Sztf3_feleves.Controllers
             Cars c8 = new Cars { CarId = Guid.NewGuid().ToString(), Make = "Mitsubishi", Model = "Lancer Evolution VIII MR", ModelYear = 2005, 
                 BodyType = "Sedan", CombFuelEco = 10.9, Available = false, PricePerDay = 296378, SalonId = s2.SalonId };
 
-            carsLogic.InsertCar(c);
-            carsLogic.InsertCar(c1);
-            carsLogic.InsertCar(c2);
-            carsLogic.InsertCar(c3);
-            carsLogic.InsertCar(c4);
-            carsLogic.InsertCar(c5);
-            carsLogic.InsertCar(c6);
-            carsLogic.InsertCar(c7);
-            carsLogic.InsertCar(c8);
             /*Renters ************************************/
 
             Renters r = new Renters { RenterId = Guid.NewGuid().ToString(), Name="Kiss Gabor", 
@@ -106,13 +92,33 @@ namespace Sztf3_feleves.Controllers
                 PostalCode= "9028", City= "Győr", Address= "Negyedik utca 4.", 
                 Email= "lakatosbrendong@prnewswire.com", PhoneNumber= "+51 442 752 0329", RentedDays=4, CarId=c8.CarId };
 
+            //c.RenterId = r.RenterId;
+            //c4.RenterId = r1.RenterId;
+            //c5.RenterId = r2.RenterId;
+            //c7.RenterId = r3.RenterId;
+            //c8.RenterId = r4.RenterId;
+
+            salonsLogic.InsertSalon(s);
+            salonsLogic.InsertSalon(s1);
+            salonsLogic.InsertSalon(s2);
+            salonsLogic.InsertSalon(s3);
+            salonsLogic.InsertSalon(s4);
+
+            carsLogic.InsertCar(c);
+            carsLogic.InsertCar(c1);
+            carsLogic.InsertCar(c2);
+            carsLogic.InsertCar(c3);
+            carsLogic.InsertCar(c4);
+            carsLogic.InsertCar(c5);
+            carsLogic.InsertCar(c6);
+            carsLogic.InsertCar(c7);
+            carsLogic.InsertCar(c8);
+
             rentersLogic.InsertRenter(r);
             rentersLogic.InsertRenter(r1);
             rentersLogic.InsertRenter(r2);
             rentersLogic.InsertRenter(r3);
             rentersLogic.InsertRenter(r4);
-
-            
 
             return RedirectToAction(nameof(Index));
         }
@@ -133,6 +139,29 @@ namespace Sztf3_feleves.Controllers
             salon.SalonId = Guid.NewGuid().ToString();
             salonsLogic.InsertSalon(salon);
 
+            return RedirectToAction(nameof(ListSalons));
+        }
+
+        [HttpGet]
+        public IActionResult DeleteSalon(string id)
+        {
+            Salons s = salonsLogic.GetOneSalon(id);
+
+            salonsLogic.DeleteSalon(id);
+
+            return RedirectToAction(nameof(ListSalons));
+        }
+
+        [HttpGet]
+        public IActionResult EditSalon(string id)
+        {
+            return View(salonsLogic.GetOneSalon(id));
+        }
+
+        [HttpPost]
+        public IActionResult EditSalon(Salons s)
+        {
+            salonsLogic.UpdateSalon(s.SalonId, s);
             return RedirectToAction(nameof(ListSalons));
         }
 
@@ -162,22 +191,37 @@ namespace Sztf3_feleves.Controllers
         }
 
         [HttpGet]
-        public IActionResult ListCars()
+        public IActionResult DeleteCar(string id)
         {
-            return View(carsLogic.PrintCars());
+            Cars c = carsLogic.GetOneCar(id);
+
+            carsLogic.DeleteCar(id);
+
+            return RedirectToAction(nameof(ListCars));
         }
 
         [HttpGet]
         public IActionResult EditCar(string id)
         {
-            return View(carsLogic.PrintCars());
+            return View(carsLogic.GetOneCar(id));
         }
 
         [HttpPost]
-        public IActionResult EditCar(string oldid, Cars c)
+        public IActionResult EditCar(Cars c)
+        {
+            carsLogic.UpdateCar(c.CarId, c);
+            return RedirectToAction(nameof(ListCars));
+        }
+
+        [HttpGet]
+        public IActionResult ListCars()
         {
             return View(carsLogic.PrintCars());
         }
+
+        //Amikor kiberelnek kocsit, a kocsi objektumnak is be kene adni hogy melyik Renter berete ki
+
+        //Delete method
 
         /*****************************************************************/
         /*************************** Renter ******************************/
@@ -193,14 +237,55 @@ namespace Sztf3_feleves.Controllers
         public IActionResult AddNewRenter(Renters renter)
         {
             renter.RenterId = Guid.NewGuid().ToString();
+            Cars c = carsLogic.GetOneCar(renter.CarId);
+            //c.RenterId = renter.RenterId; //Exceptiont dob, foreign key sertes miatt
+            c.Available = false;
+            carsLogic.Save();
             rentersLogic.InsertRenter(renter);
 
             return RedirectToAction(nameof(ListCars));
         }
 
         [HttpGet]
+        public IActionResult DeleteRenter(string id)
+        {
+            Renters r = rentersLogic.GetOneRenter(id);
+            Cars c = carsLogic.GetOneCar(r.CarId);
+            if (c!=null)
+            {
+                c.Available = true;
+            }
+            carsLogic.Save();
+            r.CarId = null;
+            
+            rentersLogic.DeleteRenter(id);
+                //TO DO egy renter lekerese, abban a carid nullozasa, majd a renter torlese
+                //repo, logic ban migirni az egy renter lekereset
+
+            return RedirectToAction(nameof(ListRenters));
+        }
+
+        [HttpGet]
+        public IActionResult EditRenter(string id)
+        {
+            return View(rentersLogic.GetOneRenter(id));
+        }
+
+        [HttpPost]
+        public IActionResult EditRenter(Renters r)
+        {
+            rentersLogic.UpdateRenter(r.RenterId, r);
+            return RedirectToAction(nameof(ListRenters));
+        }
+
+        [HttpGet]
         public IActionResult ListRenters()
         {
+            foreach (var item in rentersLogic.PrintRenters())
+            {
+                item.Car = carsLogic.GetOneCar(item.CarId);
+            }
+
             return View(rentersLogic.PrintRenters());
         }
     }

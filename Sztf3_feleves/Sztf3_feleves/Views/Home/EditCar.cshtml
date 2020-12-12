@@ -1,4 +1,5 @@
-﻿@model string
+﻿@using Models
+@model Cars
 
 <!DOCTYPE html>
 
@@ -10,13 +11,14 @@
 <body>
     <form action="/Home/EditCar" method="post">
         Make:
-        <input type="text" name="Make" /> <br />
+        <input type="text" name="Make" value="@Model.Make"/> <br />
         Model:
-        <input type="text" name="Model" /> <br />
+        <input type="text" name="Model" value="@Model.Model"/> <br />
         Model Year:
-        <input type="number" name="ModelYear" max="2021" /> <br />
-        Body Type:
+        <input type="number" name="ModelYear" max="2021" value="@Model.ModelYear"/> <br />
+        Body Type: <label>@Model.BodyType</label>
         <select name="BodyType">
+            <option hidden disabled selected value> -- select an option -- </option>
             <option value="Hatchback">Hatchback</option>
             <option value="Sedan">Sedan</option>
             <option value="Suv">SUV</option>
@@ -25,16 +27,14 @@
             <option value="Wagon">Wagon</option>
         </select> <br />
         Combined Fuel Economy:
-        <input type="number" name="CombFuelEco" step="0.1" /> <br />
+        <input type="number" name="CombFuelEco" step="0.1" value="@Model.CombFuelEco"/> <br />
         Price Per Day:
-        <input type="number" name="PricePerDay" /> <br />
+        <input type="number" name="PricePerDay" value="@Model.PricePerDay"/> <br />
 
-        <input type="radio" name="Available" value="true" />
-        <label for="true">True</label><br>
-        <input type="radio" name="Available" value="false" />
-        <label for="false">False</label><br>
 
-        <input type="hidden" name="SalonId" value="@Model" />
+        <input type="hidden" name="Available" value="@Model.Available" />
+        <input type="hidden" name="CarId" value="@Model.CarId" />
+        <input type="hidden" name="SalonId" value="@Model.SalonId" />
 
         <input type="submit" value="Edit Car" />
     </form>
