@@ -11,19 +11,19 @@
 <body>
     <form action="/Home/EditRenter" method="post">
         Name:
-        <input type="text" name="Name" value="@Model.Name"/> <br />
+        <input type="text" name="Name" value="@Model.Name" required/> <br />
         Postal Code:
-        <input type="text" name="PostalCode" value="@Model.PostalCode"/> <br />
+        <input type="text" name="PostalCode" value="@Model.PostalCode" required/> <br />
         City:
-        <input type="text" name="City" value="@Model.City"/> <br />
+        <input type="text" name="City" value="@Model.City" required/> <br />
         Address:
-        <input type="text" name="Address" value="@Model.Address"/> <br />
+        <input type="text" name="Address" value="@Model.Address" required/> <br />
         Email:
-        <input type="email" name="Email" value="@Model.Email"/> <br />
+        <input type="email" name="Email" value="@Model.Email" required/> <br />
         Phone Number:
-        <input type="text" name="PhoneNumber" value="@Model.PhoneNumber"/> <br />
+        <input type="text" name="PhoneNumber" value="@Model.PhoneNumber" required/> <br />
         Rented Days:
-        <input type="number" name="RentedDays" value="@Model.RentedDays"/> <br />
+        <input type="number" name="RentedDays" value="@Model.RentedDays" required/> <br />
 
         <input type="hidden" name="CarId" value="@Model.CarId" />
         <input type="hidden" name="RenterId" value="@Model.RenterId" />

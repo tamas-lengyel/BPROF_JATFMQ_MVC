@@ -41,22 +41,21 @@
 
     <form action="/Home/AddNewRenter" method="post">
         Name:
-        <input type="text" name="Name" /> <br />
+        <input type="text" name="Name" required/> <br />
         Postal Code:
-        <input type="text" name="PostalCode" /> <br />
+        <input type="text" name="PostalCode" required/> <br />
         City:
-        <input type="text" name="City" /> <br />
+        <input type="text" name="City" required/> <br />
         Address:
-        <input type="text" name="Address" /> <br />
+        <input type="text" name="Address" required/> <br />
         Email:
-        <input type="email" name="Email" /> <br />
+        <input type="email" name="Email" required/> <br />
         Phone Number:
-        <input type="text" name="PhoneNumber" /> <br />
+        <input type="text" name="PhoneNumber" required/> <br />
         Rented Days:
-        <input type="number" name="RentedDays" /> <br />
+        <input type="number" name="RentedDays" required/> <br />
 
         <input type="hidden" name="CarId" value="@Model" />
-
         <input type="submit" value="Add" />
     </form>
 </body>

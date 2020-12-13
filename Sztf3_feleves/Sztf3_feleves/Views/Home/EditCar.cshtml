@@ -11,13 +11,13 @@
 <body>
     <form action="/Home/EditCar" method="post">
         Make:
-        <input type="text" name="Make" value="@Model.Make"/> <br />
+        <input type="text" name="Make" value="@Model.Make" required /> <br />
         Model:
-        <input type="text" name="Model" value="@Model.Model"/> <br />
+        <input type="text" name="Model" value="@Model.Model" required /> <br />
         Model Year:
-        <input type="number" name="ModelYear" max="2021" value="@Model.ModelYear"/> <br />
+        <input type="number" name="ModelYear" max="2021" value="@Model.ModelYear" required /> <br />
         Body Type: <label>@Model.BodyType</label>
-        <select name="BodyType">
+        <select name="BodyType" required>
             <option hidden disabled selected value> -- select an option -- </option>
             <option value="Hatchback">Hatchback</option>
             <option value="Sedan">Sedan</option>
@@ -27,10 +27,18 @@
             <option value="Wagon">Wagon</option>
         </select> <br />
         Combined Fuel Economy:
-        <input type="number" name="CombFuelEco" step="0.1" value="@Model.CombFuelEco"/> <br />
+        <input type="number" name="CombFuelEco" step="0.1" value="@Model.CombFuelEco" required /> <br />
         Price Per Day:
-        <input type="number" name="PricePerDay" value="@Model.PricePerDay"/> <br />
-
+        <input type="number" name="PricePerDay" value="@Model.PricePerDay" required /> <br />
+        
+        @if (Model.Available)
+        {
+            <input type="checkbox" class="form-check-input" value="true" name="Available" checked hidden/><br />
+        }
+        else
+        {
+            <input type="checkbox" class="form-check-input" value="true" name="Available" hidden/><br />
+        }
 
         <input type="hidden" name="Available" value="@Model.Available" />
         <input type="hidden" name="CarId" value="@Model.CarId" />

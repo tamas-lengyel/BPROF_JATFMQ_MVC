@@ -38,13 +38,13 @@
 
     <form action="/Home/AddNewCar" method="post">
         Make:
-        <input type="text" name="Make" /> <br />
+        <input type="text" name="Make" required/> <br />
         Model:
-        <input type="text" name="Model" /> <br />
+        <input type="text" name="Model" required/> <br />
         Model Year:
-        <input type="number" name="ModelYear" max="2021" /> <br />
+        <input type="number" name="ModelYear" max="2021" required/> <br />
         Body Type:
-        <select name="BodyType">
+        <select name="BodyType" required>
             <option value="Hatchback">Hatchback</option>
             <option value="Sedan">Sedan</option>
             <option value="Suv">SUV</option>
@@ -53,9 +53,9 @@
             <option value="Wagon">Wagon</option>
         </select> <br />
         Combined Fuel Economy:
-        <input type="number" name="CombFuelEco" step="0.1" /> <br />
+        <input type="number" name="CombFuelEco" step="0.1" required/> <br />
         Price Per Day:
-        <input type="number" name="PricePerDay" /> <br />
+        <input type="number" name="PricePerDay" required/> <br />
 
         <input type="hidden" name="Available" value="true" />
         <input type="hidden" name="SalonId" value="@Model" />

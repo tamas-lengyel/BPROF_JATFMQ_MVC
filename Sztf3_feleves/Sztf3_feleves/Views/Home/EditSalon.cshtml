@@ -11,11 +11,11 @@
 <body>
     <form action="/Home/EditSalon" method="post">
         City:
-        <input type="text" name="City" maxlength="30" value="@Model.City" /> <br />
+        <input type="text" name="City" maxlength="30" value="@Model.City" required/> <br />
         Address:
-        <input type="text" name="Address" maxlength="50" value="@Model.Address" /> <br />
+        <input type="text" name="Address" maxlength="50" value="@Model.Address" required/> <br />
         Postal Code:
-        <input type="text" name="PostalCode" maxlength="20" value="@Model.PostalCode" /> <br />
+        <input type="text" name="PostalCode" maxlength="20" value="@Model.PostalCode" required/> <br />
 
         <input type="hidden" name="SalonId" value="@Model.SalonId" />
         <input type="hidden" name="Car" value="@Model.Car" />
