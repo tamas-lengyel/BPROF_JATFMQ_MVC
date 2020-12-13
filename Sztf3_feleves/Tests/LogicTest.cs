@@ -57,5 +57,47 @@ namespace Tests
 
             salonRepo.Verify(repo => repo.Insert(salon), Times.Once);
         }
+
+        [Test]
+        public void TestDeletingRenter()
+        {
+            Mock<IRepository<Renters>> renterRepo = new Mock<IRepository<Renters>>();
+            Renters renter = new Renters()
+            {
+                RenterId = Guid.NewGuid().ToString(),
+                Name = "Kiss Gabor",
+                PostalCode = "4034",
+                City = "Debrecen",
+                Address = "Elso utca 1.",
+                Email = "kissgabor@upenn.edu",
+                PhoneNumber = "+31 880 308 7288",
+                RentedDays = 11
+            };
+            renterRepo.Setup(repo => repo.Delete(It.IsAny<string>()));
+            RentersLogic logic = new RentersLogic(renterRepo.Object);
+
+            logic.DeleteRenter(renter.RenterId);
+
+            renterRepo.Verify(repo => repo.Delete(renter.RenterId), Times.Once);
+        }
+
+        [Test]
+        public void TestUpdatingSalon()
+        {
+            Mock<IRepository<Salons>> salonRepo = new Mock<IRepository<Salons>>();
+            Salons salon = new Salons()
+            {
+                SalonId = Guid.NewGuid().ToString(),
+                City = "Sopron",
+                Address = "Zrínyi Miklós u. 32",
+                PostalCode = "9400"
+            };
+            salonRepo.Setup(repo => repo.Update(It.IsAny<string>(), It.IsAny<Salons>()));
+            SalonsLogic logic = new SalonsLogic(salonRepo.Object);
+
+            logic.UpdateSalon(salon.SalonId, salon);
+
+            salonRepo.Verify(repo => repo.Update(salon.SalonId, salon), Times.Once);
+        }
     }
 }
