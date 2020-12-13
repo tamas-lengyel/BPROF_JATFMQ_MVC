@@ -9,13 +9,39 @@
     <title>EditSalon</title>
 </head>
 <body>
+    <div class="navbar">
+        <div class="right-side">
+            <div class="brand">
+                <div>CAR RENTING SERVICE</div>
+            </div>
+        </div>
+
+        <div class="left-side">
+            <div class="nav-link-wrapper">
+                <a href="/">Home</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="/Home/Add">Add</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="/Home/List">List</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="/Home/Statistics">Stats</a>
+            </div>
+        </div>
+    </div>
+
     <form action="/Home/EditSalon" method="post">
         City:
-        <input type="text" name="City" maxlength="30" value="@Model.City" required/> <br />
+        <input type="text" name="City" maxlength="30" value="@Model.City" required /> <br />
         Address:
-        <input type="text" name="Address" maxlength="50" value="@Model.Address" required/> <br />
+        <input type="text" name="Address" maxlength="50" value="@Model.Address" required /> <br />
         Postal Code:
-        <input type="text" name="PostalCode" maxlength="20" value="@Model.PostalCode" required/> <br />
+        <input type="text" name="PostalCode" maxlength="20" value="@Model.PostalCode" required /> <br />
 
         <input type="hidden" name="SalonId" value="@Model.SalonId" />
         <input type="hidden" name="Car" value="@Model.Car" />

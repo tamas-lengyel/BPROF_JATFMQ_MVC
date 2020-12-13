@@ -9,6 +9,32 @@
     <title>Edit Car</title>
 </head>
 <body>
+    <div class="navbar">
+        <div class="right-side">
+            <div class="brand">
+                <div>CAR RENTING SERVICE</div>
+            </div>
+        </div>
+
+        <div class="left-side">
+            <div class="nav-link-wrapper">
+                <a href="/">Home</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="/Home/Add">Add</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="/Home/List">List</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="/Home/Statistics">Stats</a>
+            </div>
+        </div>
+    </div>
+
     <form action="/Home/EditCar" method="post">
         Make:
         <input type="text" name="Make" value="@Model.Make" required /> <br />
@@ -30,14 +56,14 @@
         <input type="number" name="CombFuelEco" step="0.1" value="@Model.CombFuelEco" required /> <br />
         Price Per Day:
         <input type="number" name="PricePerDay" value="@Model.PricePerDay" required /> <br />
-        
+
         @if (Model.Available)
         {
-            <input type="checkbox" class="form-check-input" value="true" name="Available" checked hidden/><br />
+            <input type="checkbox" class="form-check-input" value="true" name="Available" checked hidden /><br />
         }
         else
         {
-            <input type="checkbox" class="form-check-input" value="true" name="Available" hidden/><br />
+            <input type="checkbox" class="form-check-input" value="true" name="Available" hidden /><br />
         }
 
         <input type="hidden" name="Available" value="@Model.Available" />

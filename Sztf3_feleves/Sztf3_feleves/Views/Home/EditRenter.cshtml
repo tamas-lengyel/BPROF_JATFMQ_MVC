@@ -9,21 +9,47 @@
     <title>EditRenter</title>
 </head>
 <body>
+    <div class="navbar">
+        <div class="right-side">
+            <div class="brand">
+                <div>CAR RENTING SERVICE</div>
+            </div>
+        </div>
+
+        <div class="left-side">
+            <div class="nav-link-wrapper">
+                <a href="/">Home</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="/Home/Add">Add</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="/Home/List">List</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="/Home/Statistics">Stats</a>
+            </div>
+        </div>
+    </div>
+
     <form action="/Home/EditRenter" method="post">
         Name:
-        <input type="text" name="Name" value="@Model.Name" required/> <br />
+        <input type="text" name="Name" value="@Model.Name" required /> <br />
         Postal Code:
-        <input type="text" name="PostalCode" value="@Model.PostalCode" required/> <br />
+        <input type="text" name="PostalCode" value="@Model.PostalCode" required /> <br />
         City:
-        <input type="text" name="City" value="@Model.City" required/> <br />
+        <input type="text" name="City" value="@Model.City" required /> <br />
         Address:
-        <input type="text" name="Address" value="@Model.Address" required/> <br />
+        <input type="text" name="Address" value="@Model.Address" required /> <br />
         Email:
-        <input type="email" name="Email" value="@Model.Email" required/> <br />
+        <input type="email" name="Email" value="@Model.Email" required /> <br />
         Phone Number:
-        <input type="text" name="PhoneNumber" value="@Model.PhoneNumber" required/> <br />
+        <input type="text" name="PhoneNumber" value="@Model.PhoneNumber" required /> <br />
         Rented Days:
-        <input type="number" name="RentedDays" value="@Model.RentedDays" required/> <br />
+        <input type="number" name="RentedDays" value="@Model.RentedDays" required /> <br />
 
         <input type="hidden" name="CarId" value="@Model.CarId" />
         <input type="hidden" name="RenterId" value="@Model.RenterId" />
