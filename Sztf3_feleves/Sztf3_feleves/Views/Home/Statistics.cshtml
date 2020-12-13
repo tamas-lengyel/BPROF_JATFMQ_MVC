@@ -1,0 +1,28 @@
+﻿@using Models
+@model Stats
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Statistics</title>
+</head>
+<body>
+    <p>Average price of the cars in Budapest: @Model.AvgPriceOfCarsFromBudapest</p>
+
+    <span>Addresses of all the Salons and the number of Cars they have:</span> <br />
+    @foreach (var item in Model.CountedCars)
+    {
+        <span>@item.Address: @item.CountedCars</span>
+        <br />
+    }
+    <br />
+    <span>People who rented out Audis:</span> <br />
+    @foreach (var item in Model.RentedAudis)
+    {
+        @item.Name
+        <br />
+    }
+</body>
+</html>

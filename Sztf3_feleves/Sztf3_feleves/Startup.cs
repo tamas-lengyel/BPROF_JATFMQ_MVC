@@ -24,6 +24,7 @@ namespace Sztf3_feleves
             services.AddTransient<RentersLogic, RentersLogic>();
             services.AddTransient<CarsLogic, CarsLogic>();
             services.AddTransient<SalonsLogic, SalonsLogic>();
+            services.AddTransient<StatsLogic, StatsLogic>();
             services.AddTransient<IRepository<Renters>, RentersRepository>();
             services.AddTransient<IRepository<Cars>, CarsRepository>();
             services.AddTransient<IRepository<Salons>, SalonsRepository>();

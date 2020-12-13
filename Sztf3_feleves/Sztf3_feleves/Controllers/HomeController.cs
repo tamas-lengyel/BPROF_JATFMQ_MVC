@@ -13,12 +13,14 @@ namespace Sztf3_feleves.Controllers
         CarsLogic carsLogic;
         SalonsLogic salonsLogic;
         RentersLogic rentersLogic;
+        StatsLogic statsLogic;
 
-        public HomeController(CarsLogic carsLogic, SalonsLogic salonsLogic, RentersLogic rentersLogic)
+        public HomeController(CarsLogic carsLogic, SalonsLogic salonsLogic, RentersLogic rentersLogic, StatsLogic statsLogic)
         {
             this.carsLogic = carsLogic;
             this.salonsLogic = salonsLogic;
             this.rentersLogic = rentersLogic;
+            this.statsLogic = statsLogic;
         }
 
         public IActionResult Index()
@@ -36,6 +38,16 @@ namespace Sztf3_feleves.Controllers
         public IActionResult List()
         {
             return View();
+        }
+
+        public IActionResult Statistics()
+        {
+            Stats s = new Stats();
+            s.AvgPriceOfCarsFromBudapest = statsLogic.AvgPriceOfCarsFromBudapest();
+            s.CountedCars = statsLogic.NumberOfCarsInEachSalon();
+            s.RentedAudis = statsLogic.PrintOnlyRentersThatRentedAudis();
+
+            return View(s);
         }
 
         public IActionResult GenerateDB()
@@ -120,6 +132,7 @@ namespace Sztf3_feleves.Controllers
             rentersLogic.InsertRenter(r3);
             rentersLogic.InsertRenter(r4);
 
+
             return RedirectToAction(nameof(Index));
         }
 
@@ -203,6 +216,7 @@ namespace Sztf3_feleves.Controllers
         [HttpGet]
         public IActionResult EditCar(string id)
         {
+            Cars c = carsLogic.GetOneCar(id);
             return View(carsLogic.GetOneCar(id));
         }
 
@@ -216,12 +230,12 @@ namespace Sztf3_feleves.Controllers
         [HttpGet]
         public IActionResult ListCars()
         {
+            //List<Cars> c = carsLogic.PrintCars().ToList();
+
             return View(carsLogic.PrintCars());
         }
 
         //Amikor kiberelnek kocsit, a kocsi objektumnak is be kene adni hogy melyik Renter berete ki
-
-        //Delete method
 
         /*****************************************************************/
         /*************************** Renter ******************************/
@@ -238,7 +252,7 @@ namespace Sztf3_feleves.Controllers
         {
             renter.RenterId = Guid.NewGuid().ToString();
             Cars c = carsLogic.GetOneCar(renter.CarId);
-            //c.RenterId = renter.RenterId; //Exceptiont dob, foreign key sertes miatt
+            //c.RenterId = renter.RenterId;                 //Exceptiont dob, foreign key sertes miatt
             c.Available = false;
             carsLogic.Save();
             rentersLogic.InsertRenter(renter);
@@ -259,8 +273,6 @@ namespace Sztf3_feleves.Controllers
             r.CarId = null;
             
             rentersLogic.DeleteRenter(id);
-                //TO DO egy renter lekerese, abban a carid nullozasa, majd a renter torlese
-                //repo, logic ban migirni az egy renter lekereset
 
             return RedirectToAction(nameof(ListRenters));
         }
