@@ -17,5 +17,26 @@ namespace Models
         public string PostalCode { get; set; }
 
         public virtual ICollection<Cars> Car { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            //return base.Equals(obj);
+            if (obj is Salons)
+            {
+                Salons salon = obj as Salons;
+                return this.SalonId == salon.SalonId &&
+                this.City == salon.City &&
+                this.Address == salon.Address &&
+                this.PostalCode == salon.PostalCode &&
+                this.Car == salon.Car;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            //return base.GetHashCode();
+            return 0;
+        }
     }
 }

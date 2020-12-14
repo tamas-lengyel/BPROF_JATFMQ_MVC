@@ -27,7 +27,14 @@ namespace Tests
                 new Cars(){ Make="Suzuki", Model="Swift"},
                 new Cars(){ Make="VW", Model="Transporter"}
             };
-            List<Cars> expectedCars = new List<Cars>() { cars[0], cars[1], cars[2], cars[3] };
+            List<Cars> expectedCars = new List<Cars>() 
+            { 
+                //cars[0], cars[1], cars[2], cars[3] 
+                new Cars(){ Make="Audi", Model="A5"},
+                new Cars(){ Make="Ford", Model="Mondeo"},
+                new Cars(){ Make="Suzuki", Model="Swift"},
+                new Cars(){ Make="VW", Model="Transporter"}
+            };
 
             mockedRepo.Setup(repo => repo.Print()).Returns(cars.AsQueryable());
             CarsLogic logic = new CarsLogic(mockedRepo.Object);
@@ -145,26 +152,11 @@ namespace Tests
             List<Salons> sList = new List<Salons>()
             {
                 new Salons() { SalonId = Guid.NewGuid().ToString(), City = "Budapest",
-                    Address = "Liszt Ferenc International Airport Terminal 2", PostalCode = "2200",
-                    //Car = {
-                    //    new Cars(){ CarId = Guid.NewGuid().ToString(), Make = "Toyota", Model = "C-HR", PricePerDay = 30537, Available = true },
-                    //    new Cars(){ CarId = Guid.NewGuid().ToString(), Make = "Mitsubishi", Model = "Lancer Evolution VIII MR", PricePerDay = 296378, Available = true }
-                    //}
-                },
+                    Address = "Liszt Ferenc International Airport Terminal 2", PostalCode = "2200" },
                 new Salons() { SalonId = Guid.NewGuid().ToString(), City = "Győr",
-                    Address = "Puskás Tivadar u. 9", PostalCode = "9027",
-                    //Car = {
-                    //    new Cars() { CarId = Guid.NewGuid().ToString(), Make = "Volkswagen", Model = "Transporter", PricePerDay = 53481, Available = true },
-                    //    new Cars(){ CarId = Guid.NewGuid().ToString(), Make = "Audi", Model = "A4", PricePerDay = 85397, Available = true }
-                    //}
-                },
+                    Address = "Puskás Tivadar u. 9", PostalCode = "9027" },
                 new Salons() { SalonId = Guid.NewGuid().ToString(), City = "Sopron",
-                    Address = "Zrínyi Miklós u. 32", PostalCode = "9400", 
-                    //Car = { 
-                    //    new Cars(){ CarId = Guid.NewGuid().ToString(), Make = "Nissan", Model = "300ZX", PricePerDay = 198375, Available = true },
-                    //    new Cars(){ CarId = Guid.NewGuid().ToString(), Make = "Audi", Model = "A3", PricePerDay = 41567, Available = true } 
-                    //}
-                }
+                    Address = "Zrínyi Miklós u. 32", PostalCode = "9400" }
             };
 
             List<Cars> cList = new List<Cars>
@@ -179,30 +171,11 @@ namespace Tests
 
             List<Renters> rList = new List<Renters>()
             {
-                new Renters(){ RenterId = Guid.NewGuid().ToString(), Name="Kiss Gabor",
-                    PostalCode="4034", City="Debrecen", Address= "Elso utca 1.",
-                    Email= "kissgabor@upenn.edu", PhoneNumber="+31 880 308 7288", RentedDays=11, CarId = cList[3].CarId },
-                new Renters(){ RenterId = Guid.NewGuid().ToString(), Name = "Nagy Aron", PostalCode = "1111", 
-                    City = "Budapest",  Address = "Masodik utca 2.", Email = "nagyaron@jugem.jp", 
-                    PhoneNumber = "+46 697 322 8112", RentedDays = 4, CarId = cList[4].CarId },
-                new Renters(){ RenterId = Guid.NewGuid().ToString(), Name = "Toth Eszter",
-                    PostalCode = "1020", City = "Bécs", Address = "Harmadik utca 3.", Email = "totheszter@seesaa.net",
-                    PhoneNumber = "+86 918 333 5232", RentedDays = 21, CarId = cList[5].CarId },
-                new Renters(){RenterId = Guid.NewGuid().ToString(), Name = "Jerrome Wrightem",
-                    PostalCode = "90019", City = "Los Angeles", Address = "80 Havey Alley", Email = "jwrightemk@stanford.edu",
-                    PhoneNumber = "+86 619 977 2794", RentedDays = 30, CarId = cList[0].CarId },
-                new Renters()
-                {
-                    RenterId = Guid.NewGuid().ToString(),
-                    Name = "Lakatos Brendon",
-                    PostalCode = "9028",
-                    City = "Győr",
-                    Address = "Negyedik utca 4.",
-                    Email = "lakatosbrendong@prnewswire.com",
-                    PhoneNumber = "+51 442 752 0329",
-                    RentedDays = 4,
-                    CarId = cList[1].CarId
-                }
+                new Renters(){ RenterId = Guid.NewGuid().ToString(), Name="Kiss Gabor", CarId = cList[3].CarId },
+                new Renters(){ RenterId = Guid.NewGuid().ToString(), Name = "Nagy Aron", CarId = cList[4].CarId },
+                new Renters(){ RenterId = Guid.NewGuid().ToString(), Name = "Toth Eszter", CarId = cList[5].CarId },
+                new Renters(){ RenterId = Guid.NewGuid().ToString(), Name = "Jerrome Wrightem", CarId = cList[0].CarId },
+                new Renters(){ RenterId = Guid.NewGuid().ToString(), Name = "Lakatos Brendon", CarId = cList[1].CarId }
             };
 
             expectedAVG = 163457.5;
@@ -216,13 +189,8 @@ namespace Tests
 
             RentedAudis = new List<Renters>
             {
-                rList[2], rList[3]
-                //new Renters(){ RenterId = Guid.NewGuid().ToString(), Name = "Toth Eszter",
-                //    PostalCode = "1020", City = "Bécs", Address = "Harmadik utca 3.", Email = "totheszter@seesaa.net",
-                //    PhoneNumber = "+86 918 333 5232", RentedDays = 21, CarId = cList[5].CarId },
-                //new Renters(){RenterId = Guid.NewGuid().ToString(), Name = "Jerrome Wrightem",
-                //    PostalCode = "90019", City = "Los Angeles", Address = "80 Havey Alley", Email = "jwrightemk@stanford.edu",
-                //    PhoneNumber = "+86 619 977 2794", RentedDays = 30, CarId = cList[0].CarId },
+                new Renters(){ RenterId = rList[2].RenterId, Name = "Toth Eszter", CarId = cList[5].CarId },
+                new Renters(){ RenterId = rList[3].RenterId, Name = "Jerrome Wrightem", CarId = cList[0].CarId },
             };
 
             carRepo.Setup(repo => repo.Print()).Returns(cList.AsQueryable());
@@ -253,7 +221,7 @@ namespace Tests
 
             Assert.That(vmi, Is.EquivalentTo(NumberOfCars));
 
-            carRepo.Verify(repo => repo.Print(), Times.Never);
+            carRepo.Verify(repo => repo.Print(), Times.Once);
             salonRepo.Verify(repo => repo.Print(), Times.Once);
             renterRepo.Verify(repo => repo.Print(), Times.Never);
         }

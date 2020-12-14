@@ -28,5 +28,31 @@ namespace Models
         public string CarId { get; set; }
         [NotMapped]
         public virtual Cars Car { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            //return base.Equals(obj);
+            if (obj is Renters)
+            {
+                Renters renter = obj as Renters;
+                return this.RenterId == renter.RenterId &&
+                this.Name == renter.Name &&
+                this.PostalCode == renter.PostalCode &&
+                this.City == renter.City &&
+                this.Address == renter.Address &&
+                this.Email == renter.Email &&
+                this.PhoneNumber == renter.PhoneNumber &&
+                this.RentedDays == renter.RentedDays &&
+                this.CarId == renter.CarId &&
+                this.Car == renter.Car;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            //return base.GetHashCode();
+            return 0;
+        }
     }
 }

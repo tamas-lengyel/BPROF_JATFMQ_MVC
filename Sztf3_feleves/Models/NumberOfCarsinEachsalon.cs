@@ -8,5 +8,23 @@ namespace Models
     {
         public string Address { get; set; }
         public int CountedCars { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            //return base.Equals(obj);
+            if (obj is NumberOfCarsinEachsalon)
+            {
+                NumberOfCarsinEachsalon num = obj as NumberOfCarsinEachsalon;
+                return this.Address == num.Address &&
+                this.CountedCars == num.CountedCars;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            //return base.GetHashCode();
+            return 0;
+        }
     }
 }
