@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="~/navbar.css" rel="stylesheet" />
     <link href="~/table.css" rel="stylesheet" />
+    <link href="~/form.css" rel="stylesheet" />
 </head>
 <body>
     <div class="bg-image">
@@ -41,7 +42,7 @@
         </div>
     </div>
 
-    <input type="button" onclick="location.href='/Home/List';" value="Back" />
+    <input type="button" onclick="location.href='/Home/List';" value="Back" class="btn-primary"/>
 
     <div class="container">
 
@@ -74,11 +75,11 @@
                             @Html.DisplayFor(modelItem => item.PostalCode)
                         </td>
                         <td class="table-data">
-                            <input type="button" onclick="location.href='/Home/EditSalon?Id=@item.SalonId';" value="Edit" />
-                            <br />
-                            <input type="button" onclick="location.href='/Home/DeleteSalon?Id=@item.SalonId';" value="Delete" />
-                            <br />
-                            <input type="button" onclick="location.href='/Home/AddNewCar?Id=@item.SalonId';" value="Add Car" />
+                            <input type="button" onclick="location.href='/Home/EditSalon?Id=@item.SalonId';" value="Edit" class="btn-primary"/>
+                            
+                            <input type="button" onclick="location.href='/Home/DeleteSalon?Id=@item.SalonId';" value="Delete" class="btn-primary"/>
+                            
+                            <input type="button" onclick="location.href='/Home/AddNewCar?Id=@item.SalonId';" value="Add Car" class="btn-primary"/>
                         </td>
                     </tr>
                 }

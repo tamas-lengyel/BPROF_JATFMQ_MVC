@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>Statistics</title>
     <link href="~/navbar.css" rel="stylesheet" />
+    <link href="~/form.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar">
@@ -36,20 +37,24 @@
         </div>
     </div>
 
-    <p>Average price of the cars in Budapest: @Model.AvgPriceOfCarsFromBudapest</p>
+    <div class="pricing-box-container">
+        <div class="pricing-box text-center">
+            <p>Average price of the cars in Budapest: </p> <br /> <span>@Model.AvgPriceOfCarsFromBudapest</span>
 
-    <span>Addresses of all the Salons and the number of Cars they have:</span> <br />
-    @foreach (var item in Model.CountedCars)
-    {
-        <span>@item.Address: @item.CountedCars</span>
-        <br />
-    }
-    <br />
-    <span>People who rented out Audis:</span> <br />
-    @foreach (var item in Model.RentedAudis)
-    {
-        @item.Name
-        <br />
-    }
+            <p>Addresses of all the Salons and the number of Cars they have:</p> <br />
+            @foreach (var item in Model.CountedCars)
+            {
+                <span>@item.Address: @item.CountedCars</span>
+                <br />
+            }
+            <br />
+            <p>People who rented out Audis:</p> <br />
+            @foreach (var item in Model.RentedAudis)
+            {
+                @item.Name
+                <br />
+            }
+        </div>
+    </div>
 </body>
 </html>

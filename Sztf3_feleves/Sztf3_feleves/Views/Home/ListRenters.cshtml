@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="~/navbar.css" rel="stylesheet" />
     <link href="~/table.css" rel="stylesheet" />
+    <link href="~/form.css" rel="stylesheet" />
 </head>
 <body>
     <div class="bg-image">
@@ -41,7 +42,7 @@
         </div>
     </div>
 
-    <input type="button" onclick="location.href='/Home/List';" value="Back" />
+    <input type="button" onclick="location.href='/Home/List';" value="Back" class="btn-primary"/>
 
     <div class="container">
 
@@ -104,9 +105,9 @@
                             <span>@Html.DisplayFor(modelItem => item.Car.Make) @Html.DisplayFor(modelItem => item.Car.Model)</span>
                         </td>
                         <td class="table-data">
-                            <input type="button" onclick="location.href='/Home/DeleteRenter?Id=@item.RenterId';" value="Delete" />
-                            <br />
-                            <input type="button" onclick="location.href='/Home/EditRenter?Id=@item.RenterId';" value="Edit" />
+                            <input type="button" onclick="location.href='/Home/DeleteRenter?Id=@item.RenterId';" value="Delete" class="btn-primary"/>
+                            
+                            <input type="button" onclick="location.href='/Home/EditRenter?Id=@item.RenterId';" value="Edit" class="btn-primary"/>
                         </td>
                     </tr>
                 }

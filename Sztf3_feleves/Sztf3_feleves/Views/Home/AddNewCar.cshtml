@@ -8,6 +8,7 @@
     <title>Add New Car</title>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="~/navbar.css" rel="stylesheet" />
+    <link href="~/form.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar">
@@ -36,31 +37,37 @@
         </div>
     </div>
 
-    <form action="/Home/AddNewCar" method="post">
-        Make:
-        <input type="text" name="Make" required/> <br />
-        Model:
-        <input type="text" name="Model" required/> <br />
-        Model Year:
-        <input type="number" name="ModelYear" max="2021" required/> <br />
-        Body Type:
-        <select name="BodyType" required>
-            <option value="Hatchback">Hatchback</option>
-            <option value="Sedan">Sedan</option>
-            <option value="Suv">SUV</option>
-            <option value="Coupe">Coupe</option>
-            <option value="Van">Van</option>
-            <option value="Wagon">Wagon</option>
-        </select> <br />
-        Combined Fuel Economy:
-        <input type="number" name="CombFuelEco" step="0.1" required/> <br />
-        Price Per Day:
-        <input type="number" name="PricePerDay" required/> <br />
+    <div class="pricing-box-container">
+        <div class="pricing-box text-center">
+            <h1>ADD NEW CAR</h1>
+            <form action="/Home/AddNewCar" method="post">
+                <p>Make</p>
+                <input type="text" name="Make" required class="input"/> <br />
+                <p>Model</p>
+                <input type="text" name="Model" required class="input"/> <br />
+                <p>Model Year</p>
+                <input type="number" name="ModelYear" max="2021" required class="input"/> <br />
+                <p>Body Type</p>
+                <select name="BodyType" required class="input">
+                    <option hidden disabled selected value> -- select an option -- </option>
+                    <option value="Hatchback">Hatchback</option>
+                    <option value="Sedan">Sedan</option>
+                    <option value="Suv">SUV</option>
+                    <option value="Coupe">Coupe</option>
+                    <option value="Van">Van</option>
+                    <option value="Wagon">Wagon</option>
+                </select> <br />
+                <p>Combined Fuel Economy</p>
+                <input type="number" name="CombFuelEco" step="0.1" required class="input"/> <br />
+                <p>Price Per Day</p>
+                <input type="number" name="PricePerDay" required class="input"/> <br />
 
-        <input type="hidden" name="Available" value="true" />
-        <input type="hidden" name="SalonId" value="@Model" />
+                <input type="hidden" name="Available" value="true" />
+                <input type="hidden" name="SalonId" value="@Model" />
 
-        <input type="submit" value="Add" />
-    </form>
+                <input type="submit" value="Add Car" class="btn-primary"/>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

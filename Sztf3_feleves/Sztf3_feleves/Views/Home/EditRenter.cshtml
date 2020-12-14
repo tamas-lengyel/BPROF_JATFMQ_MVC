@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>EditRenter</title>
     <link href="~/navbar.css" rel="stylesheet" />
+    <link href="~/form.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar">
@@ -36,26 +37,31 @@
         </div>
     </div>
 
-    <form action="/Home/EditRenter" method="post">
-        Name:
-        <input type="text" name="Name" value="@Model.Name" required /> <br />
-        Postal Code:
-        <input type="text" name="PostalCode" value="@Model.PostalCode" required /> <br />
-        City:
-        <input type="text" name="City" value="@Model.City" required /> <br />
-        Address:
-        <input type="text" name="Address" value="@Model.Address" required /> <br />
-        Email:
-        <input type="email" name="Email" value="@Model.Email" required /> <br />
-        Phone Number:
-        <input type="text" name="PhoneNumber" value="@Model.PhoneNumber" required /> <br />
-        Rented Days:
-        <input type="number" name="RentedDays" value="@Model.RentedDays" required /> <br />
+    <div class="pricing-box-container">
+        <div class="pricing-box text-center">
+            <h1>EDIT THIS RENTER</h1>
+            <form action="/Home/EditRenter" method="post">
+                <p>Name</p>
+                <input type="text" name="Name" value="@Model.Name" required class="input"/> <br />
+                <p>Postal Code</p>
+                <input type="text" name="PostalCode" value="@Model.PostalCode" required class="input"/> <br />
+                <p>City</p>
+                <input type="text" name="City" value="@Model.City" required class="input"/> <br />
+                <p>Address</p>
+                <input type="text" name="Address" value="@Model.Address" required class="input"/> <br />
+                <p>Email</p>
+                <input type="email" name="Email" value="@Model.Email" required class="input"/> <br />
+                <p>Phone Number</p>
+                <input type="text" name="PhoneNumber" value="@Model.PhoneNumber" required class="input"/> <br />
+                <p>Rented Days</p>
+                <input type="number" name="RentedDays" value="@Model.RentedDays" required class="input"/> <br />
 
-        <input type="hidden" name="CarId" value="@Model.CarId" />
-        <input type="hidden" name="RenterId" value="@Model.RenterId" />
+                <input type="hidden" name="CarId" value="@Model.CarId" />
+                <input type="hidden" name="RenterId" value="@Model.RenterId" />
 
-        <input type="submit" value="Edit Renter" />
-    </form>
+                <input type="submit" value="Edit Renter" class="btn-primary"/>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

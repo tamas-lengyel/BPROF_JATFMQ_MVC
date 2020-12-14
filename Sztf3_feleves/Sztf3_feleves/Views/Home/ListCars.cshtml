@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="~/navbar.css" rel="stylesheet" />
     <link href="~/table.css" rel="stylesheet" />
+    <link href="~/form.css" rel="stylesheet" />
 </head>
 <body>
     <div class="bg-image">
@@ -42,7 +43,7 @@
         </div>
     </div>
 
-    <input type="button" onclick="location.href = '/Home/List';" value="Back" />
+    <input type="button" onclick="location.href = '/Home/List';" value="Back" class="btn-primary"/>
 
     <div class="container">
 
@@ -101,16 +102,16 @@
                         <td class="table-data">
                             @if (item.Available)
                             {
-                                <input type="button" onclick="location.href='/Home/AddNewRenter?Id=@item.CarId';" value="Rent this Car" />
+                                <input type="button" onclick="location.href='/Home/AddNewRenter?Id=@item.CarId';" value="Rent this Car" class="btn-primary"/>
                             }
                             else
                             {
-                                <span>Rented...</span>
+                                <p style="font-size:initial">Rented...</p>
                             }
-                            <br />
-                            <input type="button" onclick="location.href='/Home/EditCar?Id=@item.CarId';" value="Edit" />
-                            <br />
-                            <input type="button" onclick="location.href='/Home/DeleteCar?Id=@item.CarId';" value="Delete" />
+                            
+                            <input type="button" onclick="location.href='/Home/EditCar?Id=@item.CarId';" value="Edit" class="btn-primary"/>
+                            
+                            <input type="button" onclick="location.href='/Home/DeleteCar?Id=@item.CarId';" value="Delete" class="btn-primary"/>
                         </td>
                     </tr>
                 }

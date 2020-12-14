@@ -1,7 +1,4 @@
 ﻿@model string
-@{
-    Layout = null;
-}
 
 <!DOCTYPE html>
 
@@ -11,6 +8,7 @@
     <title>AddNewRenter</title>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="~/navbar.css" rel="stylesheet" />
+    <link href="~/form.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar">
@@ -39,24 +37,29 @@
         </div>
     </div>
 
-    <form action="/Home/AddNewRenter" method="post">
-        Name:
-        <input type="text" name="Name" required/> <br />
-        Postal Code:
-        <input type="text" name="PostalCode" required/> <br />
-        City:
-        <input type="text" name="City" required/> <br />
-        Address:
-        <input type="text" name="Address" required/> <br />
-        Email:
-        <input type="email" name="Email" required/> <br />
-        Phone Number:
-        <input type="text" name="PhoneNumber" required/> <br />
-        Rented Days:
-        <input type="number" name="RentedDays" required/> <br />
+    <div class="pricing-box-container">
+        <div class="pricing-box text-center">
+            <h1>ADD NEW RENTER</h1>
+            <form action="/Home/AddNewRenter" method="post">
+                <p>Name</p>
+                <input type="text" name="Name" required class="input"/> <br />
+                <p>Postal Code</p>
+                <input type="text" name="PostalCode" required class="input"/> <br />
+                <p>City</p>
+                <input type="text" name="City" required class="input"/> <br />
+                <p>Address</p>
+                <input type="text" name="Address" required class="input"/> <br />
+                <p>Email</p>
+                <input type="email" name="Email" required class="input"/> <br />
+                <p>Phone Number</p>
+                <input type="text" name="PhoneNumber" required class="input"/> <br />
+                <p>Rented Days</p>
+                <input type="number" name="RentedDays" required class="input"/> <br />
 
-        <input type="hidden" name="CarId" value="@Model" />
-        <input type="submit" value="Add" />
-    </form>
+                <input type="hidden" name="CarId" value="@Model" />
+                <input type="submit" value="Add Renter" class="btn-primary" />
+            </form>
+        </div>
+    </div>
 </body>
 </html>

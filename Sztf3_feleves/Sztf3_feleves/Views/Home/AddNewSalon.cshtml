@@ -1,9 +1,4 @@
-﻿
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
@@ -11,6 +6,7 @@
     <title>Add New Salon</title>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="~/navbar.css" rel="stylesheet" />
+    <link href="~/form.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar">
@@ -39,15 +35,20 @@
         </div>
     </div>
 
-    <form action="/Home/AddNewSalon" method="post">
-        City:
-        <input type="text" name="City" maxlength="30" required/> <br />
-        Address:
-        <input type="text" name="Address" maxlength="50" required/> <br />
-        Postal Code:
-        <input type="text" name="PostalCode" maxlength="20" required/> <br />
+    <div class="pricing-box-container">
+        <div class="pricing-box text-center">
+            <h1>ADD NEW SALON</h1>
+            <form action="/Home/AddNewSalon" method="post">
+                <p>City</p> 
+                <input type="text" name="City" maxlength="30" required class="input" /> <br />
+                <p>Address</p> 
+                <input type="text" name="Address" maxlength="50" required class="input"/> <br />
+                <p>Postal Code</p> 
+                <input type="text" name="PostalCode" maxlength="20" required class="input"/> <br />
 
-        <input type="submit" value="Add" />
-    </form>
+                <input type="submit" value="Add Salon" class="btn-primary"/>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

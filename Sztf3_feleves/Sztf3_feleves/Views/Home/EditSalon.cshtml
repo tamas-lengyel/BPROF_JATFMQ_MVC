@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>EditSalon</title>
     <link href="~/navbar.css" rel="stylesheet" />
+    <link href="~/form.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar">
@@ -36,18 +37,23 @@
         </div>
     </div>
 
-    <form action="/Home/EditSalon" method="post">
-        City:
-        <input type="text" name="City" maxlength="30" value="@Model.City" required /> <br />
-        Address:
-        <input type="text" name="Address" maxlength="50" value="@Model.Address" required /> <br />
-        Postal Code:
-        <input type="text" name="PostalCode" maxlength="20" value="@Model.PostalCode" required /> <br />
+    <div class="pricing-box-container">
+        <div class="pricing-box text-center">
+            <h1>EDIT THIS SALON</h1>
+            <form action="/Home/EditSalon" method="post">
+                <p>City</p>
+                <input type="text" name="City" maxlength="30" value="@Model.City" required class="input"/> <br />
+                <p>Address</p>
+                <input type="text" name="Address" maxlength="50" value="@Model.Address" required class="input"/> <br />
+                <p>Postal Code</p>
+                <input type="text" name="PostalCode" maxlength="20" value="@Model.PostalCode" required class="input"/> <br />
 
-        <input type="hidden" name="SalonId" value="@Model.SalonId" />
-        <input type="hidden" name="Car" value="@Model.Car" />
+                <input type="hidden" name="SalonId" value="@Model.SalonId" />
+                <input type="hidden" name="Car" value="@Model.Car" />
 
-        <input type="submit" value="Edit Salon" />
-    </form>
+                <input type="submit" value="Edit Salon" class="btn-primary"/>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
