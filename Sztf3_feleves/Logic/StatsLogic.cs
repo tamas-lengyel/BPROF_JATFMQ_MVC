@@ -22,10 +22,20 @@ namespace Logic
 
         public double AvgPriceOfCarsFromBudapest()
         {
-            var avgPrice = (from x in carrepo.Print().ToList()
-                            join y in salonrepo.Print().ToList() on x.SalonId equals y.SalonId
-                            where y.City == "Budapest"
-                            select x).Average(a => a.PricePerDay);
+            double avgPrice = 0;
+            var r = carrepo.Print().ToList();
+            if (r.Count() != 0)
+            {
+                avgPrice = (from x in carrepo.Print().ToList()
+                                join y in salonrepo.Print().ToList() on x.SalonId equals y.SalonId
+                                where y.City == "Budapest"
+                                select x).Average(a => a.PricePerDay);
+            }
+            else
+            {
+                avgPrice = -1;
+            }
+            
 
             return avgPrice;
         }
