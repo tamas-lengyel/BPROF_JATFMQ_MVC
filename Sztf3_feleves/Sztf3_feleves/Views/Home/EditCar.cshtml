@@ -46,7 +46,7 @@
                 <p>Model</p>
                 <input type="text" name="Model" value="@Model.Model" required class="input"/> <br />
                 <p>Model Year</p>
-                <input type="number" name="ModelYear" max="2021" value="@Model.ModelYear" required class="input"/> <br />
+                <input type="number" name="ModelYear" min="1950" max="2021" value="@Model.ModelYear" required class="input"/> <br />
                 <p>Body Type</p> <label style="font-size: 1.2em">@Model.BodyType </label>
                 <select name="BodyType" required class="input">
                     <option hidden disabled selected value> -- select an option -- </option>
@@ -58,9 +58,9 @@
                     <option value="Wagon">Wagon</option>
                 </select> <br />
                 <p>Combined Fuel Economy</p>
-                <input type="number" name="CombFuelEco" step="0.1" value="@Model.CombFuelEco" required class="input"/> <br />
+                <input type="number" min="0" name="CombFuelEco" step="0.1" value="@Model.CombFuelEco" required class="input"/> <br />
                 <p>Price Per Day</p>
-                <input type="number" name="PricePerDay" value="@Model.PricePerDay" required class="input"/> <br />
+                <input type="number" min="0" name="PricePerDay" value="@Model.PricePerDay" required class="input"/> <br />
 
                 @if (Model.Available)
                 {

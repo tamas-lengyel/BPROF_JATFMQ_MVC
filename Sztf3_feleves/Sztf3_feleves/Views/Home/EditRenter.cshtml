@@ -54,7 +54,7 @@
                 <p>Phone Number</p>
                 <input type="text" name="PhoneNumber" value="@Model.PhoneNumber" required class="input"/> <br />
                 <p>Rented Days</p>
-                <input type="number" name="RentedDays" value="@Model.RentedDays" required class="input"/> <br />
+                <input type="number" min="1" name="RentedDays" value="@Model.RentedDays" required class="input"/> <br />
 
                 <input type="hidden" name="CarId" value="@Model.CarId" />
                 <input type="hidden" name="RenterId" value="@Model.RenterId" />

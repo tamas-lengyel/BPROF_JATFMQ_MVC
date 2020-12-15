@@ -54,7 +54,7 @@
                 <p>Phone Number</p>
                 <input type="text" name="PhoneNumber" required class="input"/> <br />
                 <p>Rented Days</p>
-                <input type="number" name="RentedDays" required class="input"/> <br />
+                <input type="number" min="1" name="RentedDays" required class="input"/> <br />
 
                 <input type="hidden" name="CarId" value="@Model" />
                 <input type="submit" value="Add Renter" class="btn-primary" />
