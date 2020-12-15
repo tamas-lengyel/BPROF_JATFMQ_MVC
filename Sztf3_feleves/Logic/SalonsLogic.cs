@@ -40,10 +40,5 @@ namespace Logic
         {
             salonrepo.Update(salonid, salon);
         }
-
-        //public void Save()
-        //{
-        //    salonrepo.Save();
-        //}
     }
 }

@@ -104,11 +104,6 @@ namespace Sztf3_feleves.Controllers
                 PostalCode= "9028", City= "Győr", Address= "Negyedik utca 4.", 
                 Email= "lakatosbrendong@prnewswire.com", PhoneNumber= "+51 442 752 0329", RentedDays=4, CarId=c8.CarId };
 
-            //c.RenterId = r.RenterId;
-            //c4.RenterId = r1.RenterId;
-            //c5.RenterId = r2.RenterId;
-            //c7.RenterId = r3.RenterId;
-            //c8.RenterId = r4.RenterId;
 
             salonsLogic.InsertSalon(s);
             salonsLogic.InsertSalon(s1);
@@ -230,12 +225,9 @@ namespace Sztf3_feleves.Controllers
         [HttpGet]
         public IActionResult ListCars()
         {
-            //List<Cars> c = carsLogic.PrintCars().ToList();
-
             return View(carsLogic.PrintCars());
         }
 
-        //Amikor kiberelnek kocsit, a kocsi objektumnak is be kene adni hogy melyik Renter berete ki
 
         /*****************************************************************/
         /*************************** Renter ******************************/
@@ -252,7 +244,6 @@ namespace Sztf3_feleves.Controllers
         {
             renter.RenterId = Guid.NewGuid().ToString();
             Cars c = carsLogic.GetOneCar(renter.CarId);
-            //c.RenterId = renter.RenterId;                 //Exceptiont dob, foreign key sertes miatt
             c.Available = false;
             carsLogic.Save();
             rentersLogic.InsertRenter(renter);

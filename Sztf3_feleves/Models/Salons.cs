@@ -20,7 +20,6 @@ namespace Models
 
         public override bool Equals(object obj)
         {
-            //return base.Equals(obj);
             if (obj is Salons)
             {
                 Salons salon = obj as Salons;
@@ -35,7 +34,6 @@ namespace Models
 
         public override int GetHashCode()
         {
-            //return base.GetHashCode();
             return 0;
         }
     }

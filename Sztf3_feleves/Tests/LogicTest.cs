@@ -29,7 +29,6 @@ namespace Tests
             };
             List<Cars> expectedCars = new List<Cars>() 
             { 
-                //cars[0], cars[1], cars[2], cars[3] 
                 new Cars(){ Make="Audi", Model="A5"},
                 new Cars(){ Make="Ford", Model="Mondeo"},
                 new Cars(){ Make="Suzuki", Model="Swift"},
@@ -48,11 +47,6 @@ namespace Tests
 
             //Verify
             mockedRepo.Verify(repo => repo.Print(), Times.Once);
-            //mockedRepo.Verify(repo => repo.GetOne(12), Times.Exactly(0));
-            //mockedRepo.Verify(repo => repo.GetOne(It.IsAny<string>()), Times.Never);
-
-
-            /*** MEG KELL IRNI AZ EQUALS ES A GETHASHCODE METODUST A CARS-BA ***/
         }
 
         [Test]

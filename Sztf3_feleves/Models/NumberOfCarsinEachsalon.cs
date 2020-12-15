@@ -11,7 +11,6 @@ namespace Models
 
         public override bool Equals(object obj)
         {
-            //return base.Equals(obj);
             if (obj is NumberOfCarsinEachsalon)
             {
                 NumberOfCarsinEachsalon num = obj as NumberOfCarsinEachsalon;
@@ -23,7 +22,6 @@ namespace Models
 
         public override int GetHashCode()
         {
-            //return base.GetHashCode();
             return 0;
         }
     }

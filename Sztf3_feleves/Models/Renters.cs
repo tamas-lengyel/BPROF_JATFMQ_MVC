@@ -31,7 +31,6 @@ namespace Models
 
         public override bool Equals(object obj)
         {
-            //return base.Equals(obj);
             if (obj is Renters)
             {
                 Renters renter = obj as Renters;
@@ -51,7 +50,6 @@ namespace Models
 
         public override int GetHashCode()
         {
-            //return base.GetHashCode();
             return 0;
         }
     }

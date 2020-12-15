@@ -34,7 +34,6 @@ namespace Models
 
         public override bool Equals(object obj)
         {
-            //return base.Equals(obj);
             if (obj is Cars)
             {
                 Cars car = obj as Cars;
@@ -56,7 +55,6 @@ namespace Models
 
         public override int GetHashCode()
         {
-            //return base.GetHashCode();
             return 0;
         }
     }
