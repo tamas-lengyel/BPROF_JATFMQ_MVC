@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfClient.CarsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfClient"
+        mc:Ignorable="d"
+        Title="CarsWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button Click="Button_AddRenter" Content="Add Renter" HorizontalAlignment="Left" Height="36" Margin="573,31,0,0" VerticalAlignment="Top" Width="190"/>
+        <Button Click="Button_ModCar" Content="Mod Car" HorizontalAlignment="Left" Height="36" Margin="573,82,0,0" VerticalAlignment="Top" Width="190"/>
+        <Button Click="Button_DelCar" Content="Del Car" HorizontalAlignment="Left" Height="36" Margin="573,132,0,0" VerticalAlignment="Top" Width="190"/>
+        
+        <Button Click="Button_Back" Content="Back" HorizontalAlignment="Left" Height="36" Margin="590,365,0,0" VerticalAlignment="Top" Width="156"/>
+        <DataGrid x:Name="dGrid" IsReadOnly="True" Margin="10,10,255,25"/>
+        <Button Click="Button_Refresh" Content="Refresh" HorizontalAlignment="Left" Height="36" Margin="590,315,0,0" VerticalAlignment="Top" Width="156"/>
+
+    </Grid>
+</Window>
