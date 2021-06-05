@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Models
 {
@@ -16,6 +17,7 @@ namespace Models
         [StringLength(20)]
         public string PostalCode { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<Cars> Car { get; set; }
 
         public override bool Equals(object obj)

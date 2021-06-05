@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\Logic.csproj", "{C5FAC2A0-9739-40BD-B691-2FDB29D69F59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{6D494C4F-936F-4933-A968-AF201589D405}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{6D494C4F-936F-4933-A968-AF201589D405}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiEndpoint", "ApiEndpoint\ApiEndpoint.csproj", "{70BA1DF7-5014-4B80-878E-94DB5342782A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfClient", "WpfClient\WpfClient.csproj", "{BE9C608C-FF51-4C1C-84EE-CF407F966F13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{6D494C4F-936F-4933-A968-AF201589D405}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D494C4F-936F-4933-A968-AF201589D405}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D494C4F-936F-4933-A968-AF201589D405}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70BA1DF7-5014-4B80-878E-94DB5342782A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70BA1DF7-5014-4B80-878E-94DB5342782A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70BA1DF7-5014-4B80-878E-94DB5342782A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70BA1DF7-5014-4B80-878E-94DB5342782A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE9C608C-FF51-4C1C-84EE-CF407F966F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE9C608C-FF51-4C1C-84EE-CF407F966F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE9C608C-FF51-4C1C-84EE-CF407F966F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE9C608C-FF51-4C1C-84EE-CF407F966F13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

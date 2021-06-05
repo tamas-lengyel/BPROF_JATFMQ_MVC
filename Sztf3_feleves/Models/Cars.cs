@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Models
 {
@@ -26,10 +27,12 @@ namespace Models
 
         public string SalonId { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual Salons Salon { get; set; }
 
         public string RenterId { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual Renters Renter { get; set; }
 
         public override bool Equals(object obj)
