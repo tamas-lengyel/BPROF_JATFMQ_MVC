@@ -24,7 +24,8 @@ namespace Data
             {
                 optionsBuilder.
                     UseLazyLoadingProxies().
-                    UseSqlServer(@"data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\CarRentingDB.mdf;integrated security=True;MultipleActiveResultSets=True");
+                    UseSqlServer(@"Server=tcp:carrenting.database.windows.net,1433;Initial Catalog=CarRentingDB;Persist Security Info=False;User ID=dbadmin;Password=Passw0rd;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;", x => x.MigrationsAssembly("ApiEndpoint"));
+                    //UseSqlServer(@"data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\CarRentingDB.mdf;integrated security=True;MultipleActiveResultSets=True");
             }
         }
 
