@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.VM;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,16 +20,19 @@ namespace WpfClient
     /// </summary>
     public partial class SalonsWindow : Window
     {
-        public SalonsWindow()
+        TokenVM token;
+
+        public SalonsWindow(TokenVM _token)
         {
             InitializeComponent();
-            GetPlayListNames();
+            token = _token;
+            GetSalons();
         }
 
-        public async Task GetPlayListNames()
+        public async Task GetSalons()
         {
             dGrid.ItemsSource = null;
-            RestService restservice = new RestService("https://localhost:5001/", "/salons");
+            RestService restservice = new RestService(WebAddress.Address(), "/salons", token.Token);
             IEnumerable<Salons> salons =
                 await restservice.Get<Salons>();
 
@@ -38,38 +42,39 @@ namespace WpfClient
 
         private void Button_AddSalon(object sender, RoutedEventArgs e)
         {
-            Window w = new AddSalonWindow();
+            Window w = new AddSalonWindow(token);
             w.Show();
         }
 
         private void Button_Back(object sender, RoutedEventArgs e)
         {
-            Window w = new MainWindow();
+            Window w = new MainWindow(token);
             w.Show();
             this.Close();
         }
 
         private void Button_Refresh(object sender, RoutedEventArgs e)
         {
-            GetPlayListNames();
+            GetSalons();
         }
 
         private void Button_AddCar(object sender, RoutedEventArgs e)
         {
-            Window w = new AddCarWindow(dGrid.SelectedItem as Salons);
+            Window w = new AddCarWindow(dGrid.SelectedItem as Salons, token);
             w.Show();
         }
 
         private void Button_ModSalon(object sender, RoutedEventArgs e)
         {
-            Window w = new AddSalonWindow(dGrid.SelectedItem as Salons);
+            Window w = new AddSalonWindow(dGrid.SelectedItem as Salons, token);
             w.Show();
         }
 
         private void Button_DelSalon(object sender, RoutedEventArgs e)
         {
-            RestService restService = new RestService("https://localhost:5001/", "/salons");
+            RestService restService = new RestService(WebAddress.Address(), "/salons", token.Token);
             restService.Delete<string>((dGrid.SelectedItem as Salons).SalonId);
+            GetSalons();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.VM;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,16 +20,19 @@ namespace WpfClient
     /// </summary>
     public partial class RentersWindow : Window
     {
-        public RentersWindow()
+        TokenVM token;
+
+        public RentersWindow(TokenVM _token)
         {
             InitializeComponent();
-            GetPlayListNames();
+            token = _token;
+            GetRenters();
         }
 
-        public async Task GetPlayListNames()
+        public async Task GetRenters()
         {
             dGrid.ItemsSource = null;
-            RestService restservice = new RestService("https://localhost:5001/", "/renter");
+            RestService restservice = new RestService(WebAddress.Address(), "/renter", token.Token);
             IEnumerable<Renters> renters =
                 await restservice.Get<Renters>();
 
@@ -38,26 +42,27 @@ namespace WpfClient
 
         private void Button_Back(object sender, RoutedEventArgs e)
         {
-            Window w = new MainWindow();
+            Window w = new MainWindow(token);
             w.Show();
             this.Close();
         }
 
         private void Button_Refresh(object sender, RoutedEventArgs e)
         {
-            GetPlayListNames();
+            GetRenters();
         }
 
         private void Button_ModRenter(object sender, RoutedEventArgs e)
         {
-            Window w = new AddRenterWindow(dGrid.SelectedItem as Renters);
+            Window w = new AddRenterWindow(dGrid.SelectedItem as Renters, token);
             w.Show();
         }
 
         private void Button_DelRenter(object sender, RoutedEventArgs e)
         {
-            RestService restservice = new RestService("https://localhost:5001/", "/renter");
+            RestService restservice = new RestService(WebAddress.Address(), "/renter", token.Token);
             restservice.Delete<string>((dGrid.SelectedItem as Renters).RenterId);
+            GetRenters();
         }
     }
 }

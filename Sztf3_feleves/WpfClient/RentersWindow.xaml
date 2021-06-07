@@ -12,7 +12,17 @@
         <Button Click="Button_DelRenter" Content="Del Renter" HorizontalAlignment="Left" Height="36" Margin="573,82,0,0" VerticalAlignment="Top" Width="190"/>
 
         <Button Click="Button_Back" Content="Back" HorizontalAlignment="Left" Height="36" Margin="590,365,0,0" VerticalAlignment="Top" Width="156"/>
-        <DataGrid x:Name="dGrid" IsReadOnly="True" Margin="10,10,255,25"/>
+        <DataGrid x:Name="dGrid" IsReadOnly="True" Margin="10,10,255,25" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Path=Email}"/>
+                <DataGridTextColumn Header="Phone Number" Binding="{Binding Path=PhoneNumber}"/>
+                <DataGridTextColumn Header="Postal Code" Binding="{Binding Path=PostalCode}"/>
+                <DataGridTextColumn Header="City" Binding="{Binding Path=City}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Path=Address}"/>
+                <DataGridTextColumn Header="Rented Days" Binding="{Binding Path=RentedDays}"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Click="Button_Refresh" Content="Refresh" HorizontalAlignment="Left" Height="36" Margin="590,315,0,0" VerticalAlignment="Top" Width="156"/>
     </Grid>
 </Window>

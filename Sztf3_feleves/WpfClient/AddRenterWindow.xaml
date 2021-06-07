@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfClient"
         mc:Ignorable="d"
-        Title="AddRenterWindow" Height="374" Width="445">
+        Title="AddRenterWindow" Height="388" Width="445">
     <Grid>
         <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label Content="Postal Code" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top"/>

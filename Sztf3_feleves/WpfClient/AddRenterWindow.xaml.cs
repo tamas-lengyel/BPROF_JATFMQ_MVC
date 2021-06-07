@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,9 @@ namespace WpfClient
 
         Renters renter;
 
-        public AddRenterWindow(Renters r)
+        TokenVM token;
+
+        public AddRenterWindow(Renters r, TokenVM _token)
         {
             InitializeComponent();
             this.name.Text = r.Name;
@@ -36,17 +39,20 @@ namespace WpfClient
             this.rentedDays.Text = r.RentedDays.ToString();
 
             renter = r;
+            token = _token;
         }
 
-        public AddRenterWindow(Cars c)
+        public AddRenterWindow(Cars c, TokenVM _token)
         {
             InitializeComponent();
             this.carId = c.CarId;
+            token = _token;
         }
 
-        public AddRenterWindow()
+        public AddRenterWindow(TokenVM _token)
         {
             InitializeComponent();
+            token = _token;
         }
 
         private void OK_Click(object sender, RoutedEventArgs e)
@@ -65,7 +71,7 @@ namespace WpfClient
                     CarId = renter.CarId,
                     RenterId = renter.RenterId,
                 };
-                RestService restService = new RestService("https://localhost:5001/", "/renter");
+                RestService restService = new RestService(WebAddress.Address(), "/renter", token.Token);
                 restService.Put<string, Renters>(renter.RenterId, r);
 
                 renter = null;
@@ -84,7 +90,7 @@ namespace WpfClient
                     CarId = carId,
                 };
 
-                RestService restService = new RestService("https://localhost:5001/", "/renter");
+                RestService restService = new RestService(WebAddress.Address(), "/renter", token.Token);
                 restService.Post<Renters>(r);
             }
 

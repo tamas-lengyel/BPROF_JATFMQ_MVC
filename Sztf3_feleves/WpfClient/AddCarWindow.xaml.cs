@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,9 @@ namespace WpfClient
 
         Cars car;
 
-        public AddCarWindow(Cars c)
+        TokenVM token;
+
+        public AddCarWindow(Cars c, TokenVM _token)
         {
             InitializeComponent();
             this.make.Text = c.Make;
@@ -34,17 +37,20 @@ namespace WpfClient
             this.combFuelEco.Text = c.CombFuelEco.ToString();
             this.pricePerDay.Text = c.PricePerDay.ToString();
             car = c;
+            token = _token;
         }
 
-        public AddCarWindow(Salons s)
+        public AddCarWindow(Salons s, TokenVM _token)
         {
             InitializeComponent();
             this.salonId = s.SalonId;
+            token = _token;
         }
 
-        public AddCarWindow()
+        public AddCarWindow(TokenVM _token)
         {
             InitializeComponent();
+            token = _token;
         }
 
         private void OK_Click(object sender, RoutedEventArgs e)
@@ -65,7 +71,7 @@ namespace WpfClient
                     CarId = car.CarId,
                 };
 
-                RestService restService = new RestService("https://localhost:5001/", "/cars");
+                RestService restService = new RestService(WebAddress.Address(), "/cars", token.Token);
                 restService.Put<string, Cars>(car.CarId, c);
 
                 car = null;
@@ -84,7 +90,7 @@ namespace WpfClient
                     SalonId = salonId,
                 };
 
-                RestService restService = new RestService("https://localhost:5001/", "/cars");
+                RestService restService = new RestService(WebAddress.Address(), "/cars", token.Token);
                 restService.Post<Cars>(c);
             }
             this.Close();

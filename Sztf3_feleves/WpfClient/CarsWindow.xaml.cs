@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.VM;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,16 +20,19 @@ namespace WpfClient
     /// </summary>
     public partial class CarsWindow : Window
     {
-        public CarsWindow()
+        TokenVM token;
+
+        public CarsWindow(TokenVM _token)
         {
             InitializeComponent();
-            GetPlayListNames();
+            token = _token;
+            GetCars();
         }
 
-        public async Task GetPlayListNames()
+        public async Task GetCars()
         {
             dGrid.ItemsSource = null;
-            RestService restservice = new RestService("https://localhost:5001/", "/cars");
+            RestService restservice = new RestService(WebAddress.Address(), "/cars", token.Token);
             IEnumerable<Cars> cars =
                 await restservice.Get<Cars>();
 
@@ -38,31 +42,32 @@ namespace WpfClient
 
         private void Button_Back(object sender, RoutedEventArgs e)
         {
-            Window w = new MainWindow();
+            Window w = new MainWindow(token);
             w.Show();
             this.Close();
         }
 
         private void Button_Refresh(object sender, RoutedEventArgs e)
         {
-            GetPlayListNames();
+            GetCars();
         }
 
         private void Button_ModCar(object sender, RoutedEventArgs e)
         {
-            Window w = new AddCarWindow(dGrid.SelectedItem as Cars);
+            Window w = new AddCarWindow(dGrid.SelectedItem as Cars, token);
             w.Show();
         }
 
         private void Button_DelCar(object sender, RoutedEventArgs e)
         {
-            RestService restservice = new RestService("https://localhost:5001/", "/cars");
+            RestService restservice = new RestService(WebAddress.Address(), "/cars", token.Token);
             restservice.Delete<string>((dGrid.SelectedItem as Cars).CarId);
+            GetCars();
         }
 
         private void Button_AddRenter(object sender, RoutedEventArgs e)
         {
-            Window w = new AddRenterWindow(dGrid.SelectedItem as Cars);
+            Window w = new AddRenterWindow(dGrid.SelectedItem as Cars, token);
             w.Show();
         }
     }

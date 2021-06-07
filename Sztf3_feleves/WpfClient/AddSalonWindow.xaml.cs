@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.VM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,19 +22,22 @@ namespace WpfClient
     public partial class AddSalonWindow : Window
     {
         string salonId;
+        TokenVM token;
 
-        public AddSalonWindow(Salons s)
+        public AddSalonWindow(Salons s, TokenVM _token)
         {
             InitializeComponent();
             this.postalCode.Text = s.PostalCode;
             this.city.Text = s.City;
             this.address.Text = s.Address;
             salonId = s.SalonId;
+            token = _token;
         }
 
-        public AddSalonWindow()
+        public AddSalonWindow(TokenVM _token)
         {
             InitializeComponent();
+            token = _token;
         }
 
         private void OK_Click(object sender, RoutedEventArgs e)
@@ -46,7 +50,7 @@ namespace WpfClient
                 s.Address = address.Text.ToString();
                 s.SalonId = salonId;
 
-                RestService restService = new RestService("https://localhost:5001/", "/salons");
+                RestService restService = new RestService(WebAddress.Address(), "/salons", token.Token);
                 restService.Put<string, Salons>(salonId, s);
 
                 salonId = null;
@@ -58,7 +62,7 @@ namespace WpfClient
                 s.City = city.Text.ToString();
                 s.Address = address.Text.ToString();
 
-                RestService restService = new RestService("https://localhost:5001/", "/salons");
+                RestService restService = new RestService(WebAddress.Address(), "/salons", token.Token);
                 restService.Post<Salons>(s);
             }
             this.Close();

@@ -13,7 +13,17 @@
         <Button Click="Button_DelCar" Content="Del Car" HorizontalAlignment="Left" Height="36" Margin="573,132,0,0" VerticalAlignment="Top" Width="190"/>
         
         <Button Click="Button_Back" Content="Back" HorizontalAlignment="Left" Height="36" Margin="590,365,0,0" VerticalAlignment="Top" Width="156"/>
-        <DataGrid x:Name="dGrid" IsReadOnly="True" Margin="10,10,255,25"/>
+        <DataGrid x:Name="dGrid" IsReadOnly="True" Margin="10,10,255,25" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Make" Binding="{Binding Path=Make}"/>
+                <DataGridTextColumn Header="Model" Binding="{Binding Path=Model}"/>
+                <DataGridTextColumn Header="Model Year" Binding="{Binding Path=ModelYear}"/>
+                <DataGridTextColumn Header="Body Type" Binding="{Binding Path=BodyType}"/>
+                <DataGridTextColumn Header="Combined Fuel Economy" Binding="{Binding Path=CombFuelEco}"/>
+                <DataGridTextColumn Header="Availability" Binding="{Binding Path=Available}"/>
+                <DataGridTextColumn Header="Price/Day (in Huf)" Binding="{Binding Path=PricePerDay}"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Click="Button_Refresh" Content="Refresh" HorizontalAlignment="Left" Height="36" Margin="590,315,0,0" VerticalAlignment="Top" Width="156"/>
 
     </Grid>

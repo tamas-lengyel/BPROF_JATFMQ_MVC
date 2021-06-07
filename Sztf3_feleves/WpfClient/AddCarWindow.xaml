@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfClient"
         mc:Ignorable="d"
-        Title="AddCarWindow" Height="351" Width="445">
+        Title="AddCarWindow" Height="359" Width="445">
     <Grid>
         <Label Content="Make" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label Content="Model" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top"/>

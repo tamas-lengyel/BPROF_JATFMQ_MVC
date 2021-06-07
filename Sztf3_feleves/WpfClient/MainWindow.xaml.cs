@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.VM;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,28 +21,31 @@ namespace WpfClient
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        TokenVM token;
+
+        public MainWindow(TokenVM _token)
         {
             InitializeComponent();
+            token = _token;
         }
 
         private void Button_ListSalons(object sender, RoutedEventArgs e)
         {
-            Window w = new SalonsWindow();
+            Window w = new SalonsWindow(token);
             w.Show();
             this.Close();
         }
 
         private void Button_ListCars(object sender, RoutedEventArgs e)
         {
-            Window w = new CarsWindow();
+            Window w = new CarsWindow(token);
             w.Show();
             this.Close();
         }
 
         private void Button_ListRenters(object sender, RoutedEventArgs e)
         {
-            Window w = new RentersWindow();
+            Window w = new RentersWindow(token);
             w.Show();
             this.Close();
         }
