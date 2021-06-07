@@ -1,4 +1,5 @@
 ﻿using Logic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ApiEndpoint.Controllers
 {
+    //[Authorize]
     [Route("generatedata")]
     [ApiController]
     public class OtherController : ControllerBase
@@ -262,5 +264,11 @@ namespace ApiEndpoint.Controllers
             rLogic.InsertRenter(r3);
             rLogic.InsertRenter(r4);
         }
+
+        [HttpGet("hello")]
+        public string HelloWorld()
+        {
+            return "Hello";
+        } 
     }
 }
