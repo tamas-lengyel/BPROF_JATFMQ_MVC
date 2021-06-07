@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -6,7 +8,7 @@ using System.Text;
 
 namespace Data
 {
-    public class CarRentingDbContext : DbContext
+    public class CarRentingDbContext : IdentityDbContext<IdentityUser>
     {
         public CarRentingDbContext(DbContextOptions<CarRentingDbContext> opt) : base(opt)
         {
@@ -48,6 +50,32 @@ namespace Data
                 .WithMany(Salons => Salons.Car)
                 .HasForeignKey(Cars => Cars.SalonId)
                 .OnDelete(DeleteBehavior.Cascade);
+            });
+
+            /*** Authentication ***/
+            modelbuilder.Entity<IdentityRole>().HasData(
+                 new { Id = "341743f0-asd2–42de-afbf-59kmkkmk72cf6", Name = "Admin", NormalizedName = "ADMIN" }
+             );
+
+            var appUser = new IdentityUser
+            {
+                Id = "02174cf0–9412–4cfe-afbf-59f706d72cf6",
+                Email = "admin@admin.com",
+                NormalizedEmail = "ADMIN@ADMIN.COM",
+                EmailConfirmed = true,
+                UserName = "admin",
+                NormalizedUserName = "ADMIN",
+                SecurityStamp = string.Empty
+            };
+
+            appUser.PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, "admin123");
+
+            modelbuilder.Entity<IdentityUser>().HasData(appUser);
+
+            modelbuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            {
+                RoleId = "341743f0-asd2–42de-afbf-59kmkkmk72cf6",
+                UserId = "02174cf0–9412–4cfe-afbf-59f706d72cf6"
             });
         }
 
